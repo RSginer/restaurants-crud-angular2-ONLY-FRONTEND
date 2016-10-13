@@ -1,0 +1,37 @@
+body{
+    font-family: Raleway, Helvetica, Arial, serif;
+}
+
+#content{
+    width: 80%;
+    min-height: 500px;
+    margin:0 auto;
+    margin-top: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #DDD;
+}
+
+.header{
+    padding:15px;
+    background-color: #1976D2;
+    min-height: 60px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    }
+
+.header__titulo{
+    padding: 0px 15px;
+    line-height: 30px;
+    color:white;
+    font-weight: bold;
+    font-size: 25px;
+    float: left;
+}
+
+.header__logo{
+    display: block;
+    float:left;
+    margin-top:-10px;
+    width: 50px;
+}

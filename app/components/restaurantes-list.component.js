@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/router", "./components/restaurantes-list.component"], function(exports_1, context_1) {
+System.register(['angular2/core', "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', "angular2/router", "./components/restaurantes-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, restaurantes_list_component_1;
-    var AppComponent;
+    var core_1, router_1;
+    var RestaurantesListComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,28 +19,25 @@ System.register(['angular2/core', "angular2/router", "./components/restaurantes-
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (restaurantes_list_component_1_1) {
-                restaurantes_list_component_1 = restaurantes_list_component_1_1;
             }],
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.titulo = "Restaurantes en Angular 2";
+            RestaurantesListComponent = (function () {
+                function RestaurantesListComponent() {
+                    this.titulo = "Lista de restaurantes";
                 }
-                AppComponent = __decorate([
+                RestaurantesListComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: 'app/view/home.html',
-                        directives: [restaurantes_list_component_1.RestaurantesListComponent, router_1.ROUTER_DIRECTIVES]
+                        selector: 'restaurantes-list',
+                        templateUrl: 'app/view/restaurantes-list.html',
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], RestaurantesListComponent);
+                return RestaurantesListComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("RestaurantesListComponent", RestaurantesListComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=restaurantes-list.component.js.map

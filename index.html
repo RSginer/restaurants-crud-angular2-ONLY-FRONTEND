@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <base href="/">
-  <title>Restaurantes Angular 2</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 1. Cargar librerías -->
-  <!-- IE required polyfills, in this exact order -->
-  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="node_modules/angular2/bundles/router.dev.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet">
-  <!-- 2. Configurar SystemJS -->
-  <script>
+	<base href="/">
+	<title>Restaurantes Angular 2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 1. Cargar librerías -->
+	<!-- IE required polyfills, in this exact order -->
+	<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+	<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+	<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="node_modules/rxjs/bundles/Rx.js"></script>
+	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+	<script src="node_modules/angular2/bundles/router.dev.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="assets/css/reset.css" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+	<!-- 2. Configurar SystemJS -->
+	<script>
       System.config({
         packages: {        
           app: {
@@ -31,7 +33,15 @@
             .then(null, console.error.bind(console));
     </script>
 </head>
+
 <body>
-  <my-app>Cargando...</my-app>
+	<section id="content">
+		<my-app>Cargando...</my-app>
+	</section>
+	<!--[if lt IE 9] 
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+       <![endif]-->
 </body>
+
 </html>

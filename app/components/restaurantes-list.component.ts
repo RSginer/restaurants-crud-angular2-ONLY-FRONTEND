@@ -23,6 +23,7 @@ export class RestaurantesListComponent implements OnInit{
 
     ngOnInit(){
         console.log("restaurantes-list component cargando");
+        this.getRestaurantes();
     }
 
     getRestaurantes(){

@@ -32,6 +32,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                 }
                 RestaurantesListComponent.prototype.ngOnInit = function () {
                     console.log("restaurantes-list component cargando");
+                    this.getRestaurantes();
                 };
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
                     var _this = this;

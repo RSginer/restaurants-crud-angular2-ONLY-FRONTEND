@@ -11,7 +11,7 @@ export class RestaurantesService{
     constructor(private _http:Http){}
 
     getRestaurantes(){
-        return this._http.get("localhost/restaurant-crud-in-angular2/server/api.php/restaurantes")
+        return this._http.get("//localhost/restaurant-crud-in-angular2/server/api.php/restaurantes")
         .map(res => res.json());
     }
 }

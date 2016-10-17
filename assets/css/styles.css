@@ -15,7 +15,7 @@ body{
 .header{
     padding:15px;
     background-color: #1976D2;
-    min-height: 35px;
+    min-height: 60px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     }
@@ -47,4 +47,9 @@ body{
 
 .main{
     padding:0px 15px;
+    margin-top: 10px;
+}
+
+.list-title{
+    font-size: 20px;
 }

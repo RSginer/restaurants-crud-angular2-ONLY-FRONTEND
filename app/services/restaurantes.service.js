@@ -23,11 +23,13 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map"], fun
             function (_1) {}],
         execute: function() {
             RestaurantesService = (function () {
+                // api url: localhost/restaurant-crud-in-angular2/server/api.php/
                 function RestaurantesService(_http) {
                     this._http = _http;
-                    this.http = _http;
                 }
                 RestaurantesService.prototype.getRestaurantes = function () {
+                    return this._http.get("localhost/restaurant-crud-in-angular2/server/api.php/restaurantes")
+                        .map(function (res) { return res.json(); });
                 };
                 RestaurantesService = __decorate([
                     core_1.Injectable(), 

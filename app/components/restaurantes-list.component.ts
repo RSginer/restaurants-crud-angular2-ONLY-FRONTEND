@@ -1,15 +1,25 @@
 // Importar el núcleo de Angular
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteConfig, Router } from "angular2/router";
+import {RestaurantesService} from "../services/restaurantes.service";
 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
     selector: 'restaurantes-list',
     templateUrl: 'app/view/restaurantes-list.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [RestaurantesService]
 })
  
 // Clase del componente donde iran los datos y funcionalidades
-export class RestaurantesListComponent {
+export class RestaurantesListComponent implements OnInit{
     public titulo:string = "Lista de restaurantes";
+
+
+    constructor(private _servicioRestaurantes: RestaurantesService){}
+       
+
+    ngOnInit(){
+        console.log("restaurantes-list component cargando");
+    }
  }

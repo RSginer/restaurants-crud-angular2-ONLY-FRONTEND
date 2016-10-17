@@ -5,15 +5,13 @@ import {Observable} from "rxjs/Observable";
 import {Restaurante} from "../model/Restaurante";
 
 @Injectable()
-
 export class RestaurantesService{
-    private http:Http;
 
-    constructor(private _http:Http){
-        this.http = _http;
-    }
+// api url: localhost/restaurant-crud-in-angular2/server/api.php/
+    constructor(private _http:Http){}
 
     getRestaurantes(){
-
+        return this._http.get("localhost/restaurant-crud-in-angular2/server/api.php/restaurantes")
+        .map(res => res.json());
     }
 }

@@ -19,4 +19,4 @@ System.register([], function(exports_1, context_1) {
         }
     }
 });
-//# sourceMappingURL=restaurant.model.js.map
+//# sourceMappingURL=restaurante.js.map

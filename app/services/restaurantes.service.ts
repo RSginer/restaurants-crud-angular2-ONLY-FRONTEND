@@ -33,8 +33,6 @@ export class RestaurantesService {
         }else if(r.status===200){
              return r.json();
         }
-       
-
     }
 
     private tratarErrores(error: any) {

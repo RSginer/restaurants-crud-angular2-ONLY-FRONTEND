@@ -37,18 +37,11 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
                     var _this = this;
                     this._servicioRestaurantes.getRestaurantes()
-                        .subscribe(function (result) {
-                        _this.restaurantes = result.data;
-                        _this.status = result.status;
-                        if (_this.status != "success") {
-                            alert("Error en el servidor");
-                        }
+                        .subscribe(function (restaurantes) {
+                        _this.restaurantes = restaurantes;
+                        console.log(_this.restaurantes);
                     }, function (error) {
-                        _this.mensajeDeError = error;
-                        if (_this.mensajeDeError != null) {
-                            console.log(_this.mensajeDeError);
-                            alert("Error en la peticion");
-                        }
+                        _this.error = error;
                     });
                 };
                 RestaurantesListComponent = __decorate([

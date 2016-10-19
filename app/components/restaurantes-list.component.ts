@@ -16,7 +16,7 @@ import {Restaurante} from "../model/Restaurante";
 export class RestaurantesListComponent implements OnInit{
     public titulo:string = "Lista de restaurantes";
     public restaurantes: Restaurante[];
-    public status:string;
+    public error:string;
     public mensajeDeError:string
     constructor(private _servicioRestaurantes: RestaurantesService){}
        
@@ -29,19 +29,12 @@ export class RestaurantesListComponent implements OnInit{
     getRestaurantes(){
         this._servicioRestaurantes.getRestaurantes()
             .subscribe(
-                result => {
-                    this.restaurantes=result.data;
-                    this.status=result.status;
-                    if(this.status != "success"){
-                        alert("Error en el servidor");
-                    }
+                restaurantes => {
+                    this.restaurantes=restaurantes;
+                    console.log(this.restaurantes);
                 },
                 error => {
-                    this.mensajeDeError= <any>error;
-                    if(this.mensajeDeError != null){
-                        console.log(this.mensajeDeError);
-                        alert("Error en la peticion");
-                    }
+                    this.error = <any> error;
                 }
             );
     }

@@ -22,7 +22,6 @@ export class RestaurantesService {
         let headers = new Headers({
             'Content-Type': 'application/json;charset=UTF-8'
         })
-
         let options = new RequestOptions({ headers: headers })
         return options
     }

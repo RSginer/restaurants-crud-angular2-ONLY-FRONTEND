@@ -1,6 +1,11 @@
-System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map", 'rxjs/add/operator/catch', 'rxjs/add/observable/throw', "rxjs/Observable"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operator/map", 'rxjs/add/operator/catch', 'rxjs/add/observable/throw'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +15,7 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map", 'rxj
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, Observable_1;
+    var core_1, http_1, service_1;
     var RestaurantesService;
     return {
         setters:[
@@ -20,15 +25,17 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map", 'rxj
             function (http_1_1) {
                 http_1 = http_1_1;
             },
+            function (service_1_1) {
+                service_1 = service_1_1;
+            },
             function (_1) {},
             function (_2) {},
-            function (_3) {},
-            function (Observable_1_1) {
-                Observable_1 = Observable_1_1;
-            }],
+            function (_3) {}],
         execute: function() {
-            RestaurantesService = (function () {
+            RestaurantesService = (function (_super) {
+                __extends(RestaurantesService, _super);
                 function RestaurantesService(_http) {
+                    _super.call(this);
                     this._http = _http;
                     this.restaurantesUrl = "http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/";
                 }
@@ -37,40 +44,13 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map", 'rxj
                     return this._http.get(this.restaurantesUrl, options).map(this.obtenerDatos)
                         .catch(this.tratarErrores);
                 };
-                RestaurantesService.prototype.configurarCabeceras = function () {
-                    var headers = new http_1.Headers({
-                        'Content-Type': 'application/json;charset=UTF-8'
-                    });
-                    var options = new http_1.RequestOptions({ headers: headers });
-                    return options;
-                };
-                RestaurantesService.prototype.obtenerDatos = function (r) {
-                    if (r.status === 204) {
-                        console.log("NO_CONTENT 204 (Respuesta vacía)");
-                    }
-                    else if (r.status === 200) {
-                        return r.json();
-                    }
-                };
-                RestaurantesService.prototype.tratarErrores = function (error) {
-                    console.log(JSON.stringify(error));
-                    if (error.status == 400) {
-                        alert("BAD_REQUEST 400 (Error en la peticion)");
-                    }
-                    else if (error.status == 500) {
-                        alert("INTERNAL_SERVER_ERROR 500 (Error en el servidor)");
-                    }
-                    else {
-                        alert("Error: " + error.status + " - " + error);
-                    }
-                    return Observable_1.Observable.throw(error._body);
-                };
+                RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };
                 RestaurantesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], RestaurantesService);
                 return RestaurantesService;
-            }());
+            }(service_1.Service));
             exports_1("RestaurantesService", RestaurantesService);
         }
     }

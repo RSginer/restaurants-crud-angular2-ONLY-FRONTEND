@@ -3,7 +3,7 @@ body{
 }
 
 #content{
-    width: 65%;
+    width: 90%;
     min-height: 500px;
     margin:0 auto;
     margin-top: 10px;
@@ -121,4 +121,5 @@ body{
     border-color: #F54747;
 }
 .restaurante__direccion{
+    font-size: 16px;
 }

@@ -1,1 +1,17 @@
 <h1 class="list-title">{{titulo}}</h1>
+
+<ul class="restaurantes-list">
+    <li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
+        <div class="restaurante__image"></div>
+        <div class="restaurante__data">
+            <h4>{{restaurante.nombre}}</h4>
+            <p>{{restaurante.direccion}}</p>
+            <p>
+                <a href="" class="btn btn__ver">Ver</a>
+                <a href="" class="btn btn__editar">Editar</a>
+                <a href="" class="btn btn__eliminar">Eliminar</a>
+            </p>
+        </div>
+    </li>
+
+</ul>

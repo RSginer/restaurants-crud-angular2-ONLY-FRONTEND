@@ -15,11 +15,26 @@ import {Restaurante} from "../model/Restaurante";
 // Clase del componente donde iran los datos y funcionalidades
 export class RestaurantesListComponent implements OnInit{
     public titulo:string = "Lista de restaurantes";
+    
+    /*
+    * Modelo de datos:
+    *      [
+    *       {
+                "id":1,
+                "nombre":"Burger King",
+                "direccion":"Calle tal y cual",
+                "descripcion":"tal y cual",
+                "precio":"100000"}
+            }
+           ]
+    */
     public restaurantes: Restaurante[];
     public error:string;
     public mensajeDeError:string
+
     constructor(private _servicioRestaurantes: RestaurantesService){}
-       
+    
+    
 
     ngOnInit(){
         console.log("restaurantes-list component cargando");
@@ -35,6 +50,7 @@ export class RestaurantesListComponent implements OnInit{
                 },
                 error => {
                     this.error = <any> error;
+                    console.log(JSON.stringify(error) + " este es el error");
                 }
             );
     }

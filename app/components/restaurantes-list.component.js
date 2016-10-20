@@ -42,6 +42,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                         console.log(_this.restaurantes);
                     }, function (error) {
                         _this.error = error;
+                        console.log(JSON.stringify(error) + " este es el error");
                     });
                 };
                 RestaurantesListComponent = __decorate([

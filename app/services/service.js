@@ -36,16 +36,12 @@ System.register(["angular2/http", "rxjs/Observable", "angular2/core"], function(
                 };
                 Service.prototype.tratarErrores = function (error) {
                     if (error.status == 400) {
-                        alert("BAD_REQUEST 400 (Error en la peticion)");
-                        console.log(JSON.stringify(error));
                     }
                     else if (error.status == 500) {
                         alert("INTERNAL_SERVER_ERROR 500 (Error en el servidor)");
-                        console.log(JSON.stringify(error));
                     }
                     else {
-                        alert("Error: " + error);
-                        console.log(JSON.stringify(error));
+                        alert("Error: " + JSON.stringify(error));
                     }
                     return Observable_1.Observable.throw(error._body);
                 };

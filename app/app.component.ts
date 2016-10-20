@@ -12,5 +12,5 @@ import {RestaurantesListComponent} from "./components/restaurantes-list.componen
  
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {
-    public titulo:string = "Restaurantes en Angular 2";
+    public titulo:string = "Restaurantes";
  }

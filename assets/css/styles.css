@@ -3,7 +3,7 @@ body{
 }
 
 #content{
-    width: 80%;
+    width: 65%;
     min-height: 500px;
     margin:0 auto;
     margin-top: 10px;
@@ -26,7 +26,8 @@ body{
     color:white;
     margin:0;
     font-weight: bold;
-    font-size: 25px;
+    text-align: center;
+    font-size: 2em;
     float: left;
 }
 
@@ -48,8 +49,73 @@ body{
 .main{
     padding:0px 15px;
     margin-top: 10px;
+    color:#444;
 }
 
 .list-title{
     font-size: 20px;
+    font-weight: bold;
+}
+
+.restaurantes-list{
+    margin-top:10px;
+    font-size: 18px;
+
+}
+
+.restaurantes-list__restaurante{
+    width: 100%;
+    border:1px solid #DDD;
+    height: 101px;
+    line-height: 1.5;
+    float: left;
+    padding: 0px 0px;
+    margin-top:10px;
+    color:gray;
+}
+
+.restaurante__image{
+    height: 100px;
+    width: 100px;
+    background: #CCC;
+    float: left;
+}
+
+.restaurante__data{
+    word-break: break-word;
+    float: left;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.restaurante__title{
+    color:#444;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn{
+    font-size: 13px;
+    border:1px solid #1976D2;
+    box-shadow: 0px 0px 5px #DDD;
+    padding: 0px 5px;
+    text-decoration: none;
+    color:white;
+    background: #0074d9;
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 4px;
+    margin-top:14px;
+}
+
+.btn--editar{
+    background: #0A0;
+    border-color: #59a600;
+}
+.btn--eliminar{
+    background: #E23237;
+    border-color: #F54747;
+}
+.restaurante__direccion{
 }

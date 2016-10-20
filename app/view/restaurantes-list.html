@@ -4,12 +4,12 @@
     <li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
         <div class="restaurante__image"></div>
         <div class="restaurante__data">
-            <h4>{{restaurante.nombre}}</h4>
-            <p>{{restaurante.direccion}}</p>
+            <h4 class="restaurante__title">{{restaurante.nombre}}</h4>
+            <p class="restaurante__direccion">{{restaurante.direccion}}</p>
             <p>
-                <a href="" class="btn btn__ver">Ver</a>
-                <a href="" class="btn btn__editar">Editar</a>
-                <a href="" class="btn btn__eliminar">Eliminar</a>
+                <a href="" class="btn btn--ver">Ver</a>
+                <a href="" class="btn btn--editar">Editar</a>
+                <a href="" class="btn btn--eliminar">Eliminar</a>
             </p>
         </div>
     </li>

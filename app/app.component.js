@@ -27,7 +27,7 @@ System.register(['angular2/core', "angular2/router", "./components/restaurantes-
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
             AppComponent = (function () {
                 function AppComponent() {
-                    this.titulo = "Restaurantes en Angular 2";
+                    this.titulo = "Restaurantes";
                 }
                 AppComponent = __decorate([
                     core_1.Component({

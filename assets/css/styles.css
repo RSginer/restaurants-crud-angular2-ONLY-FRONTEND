@@ -66,6 +66,7 @@ body{
 .restaurantes-list__restaurante{
     width: 100%;
     border:1px solid #DDD;
+    border-radius: 4px;
     height: 101px;
     line-height: 1.5;
     float: left;
@@ -75,8 +76,10 @@ body{
 }
 
 .restaurante__image{
-    height: 100px;
+    height: 99px;
     width: 100px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     background: #CCC;
     float: left;
 }

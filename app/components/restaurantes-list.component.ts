@@ -32,8 +32,8 @@ export class RestaurantesListComponent implements OnInit{
     getRestaurantes(){
         this._servicioRestaurantes.getRestaurantes()
             .subscribe(
-                restaurantes => {
-                    this.restaurantes=restaurantes;
+                res => {
+                    this.restaurantes=res;
                     console.log(this.restaurantes);
                     this.loading=false;
                 },

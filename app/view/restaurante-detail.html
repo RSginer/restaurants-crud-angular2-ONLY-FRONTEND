@@ -1,1 +1,9 @@
-<h1>Detalles del restaurante con id: {{parametro}}</h1>
+<h1>Detalles del restaurante</h1>
+<div *ngIf="restaurante">
+    {{restaurante.id}}
+    {{restaurante.nombre}}
+    {{restaurante.direccion}}
+    {{restaurante.descripcion}}
+    {{restaurante.imagen}}
+    {{restaurante.precio}}
+</div>

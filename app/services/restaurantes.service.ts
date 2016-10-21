@@ -9,7 +9,7 @@ import {Restaurante} from "../model/Restaurante";
 
 @Injectable()
 export class RestaurantesService extends Service{
-    private restaurantesUrl: string = "http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/";
+    private restaurantesUrl: string = "";
 
     public constructor(private _http: Http) { 
         super();
@@ -29,8 +29,24 @@ export class RestaurantesService extends Service{
     */
     public getRestaurantes(): Observable<Restaurante[]> {
         let options = this.configurarCabeceras();
-        return this._http.get(this.restaurantesUrl, options).map(this.obtenerDatos)
+        return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes", options).map(this.obtenerDatos)
             .catch(this.tratarErrores);
+    }
+
+  /*
+     Modelo de datos:
+           {
+                "id":1,
+                "nombre":"Burger King",
+                "direccion":"Calle tal y cual",
+                "descripcion":"tal y cual",
+                "precio":"100000"}
+            }
+    */
+    public getRestauranteById(id: String){
+        let options = this.configurarCabeceras();
+        return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/" + id, options).map(this.obtenerDatos)
+        .catch(this.tratarErrores);
     }
 
      private obtenerDatos(r: Response) { return r.json() } 

@@ -10,11 +10,30 @@ import {Restaurante} from "../model/Restaurante";
 })
 export class RestauranteDetailComponent implements OnInit{
     public parametro;
+    public error;
+    public restaurante;
+
     constructor(
         private _restaurantesService: RestaurantesService,
         private _routeParams: RouteParams
     ){}
+
+
     ngOnInit(){
         this.parametro = this._routeParams.get("id");
+        this.getRestauranteById(this.parametro);
+        console.log(JSON.stringify(this.restaurante));
+    }
+
+    getRestauranteById(id:string){
+        this._restaurantesService.getRestauranteById(id)
+                                    .subscribe(
+                                        res =>{
+                                            this.restaurante =  res;
+                                        },
+                                        error => {
+                                            this.error = <any> error;
+                                        });
+
     }
 }

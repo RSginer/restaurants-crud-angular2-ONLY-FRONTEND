@@ -37,7 +37,7 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                 function RestaurantesService(_http) {
                     _super.call(this);
                     this._http = _http;
-                    this.restaurantesUrl = "http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/";
+                    this.restaurantesUrl = "";
                 }
                 /*
                 * Modelo de datos:
@@ -53,7 +53,22 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                 */
                 RestaurantesService.prototype.getRestaurantes = function () {
                     var options = this.configurarCabeceras();
-                    return this._http.get(this.restaurantesUrl, options).map(this.obtenerDatos)
+                    return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes", options).map(this.obtenerDatos)
+                        .catch(this.tratarErrores);
+                };
+                /*
+                   Modelo de datos:
+                         {
+                              "id":1,
+                              "nombre":"Burger King",
+                              "direccion":"Calle tal y cual",
+                              "descripcion":"tal y cual",
+                              "precio":"100000"}
+                          }
+                  */
+                RestaurantesService.prototype.getRestauranteById = function (id) {
+                    var options = this.configurarCabeceras();
+                    return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/" + id, options).map(this.obtenerDatos)
                         .catch(this.tratarErrores);
                 };
                 RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };

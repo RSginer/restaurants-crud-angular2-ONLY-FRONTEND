@@ -38,8 +38,8 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
                     var _this = this;
                     this._servicioRestaurantes.getRestaurantes()
-                        .subscribe(function (restaurantes) {
-                        _this.restaurantes = restaurantes;
+                        .subscribe(function (res) {
+                        _this.restaurantes = res;
                         console.log(_this.restaurantes);
                         _this.loading = false;
                     }, function (error) {

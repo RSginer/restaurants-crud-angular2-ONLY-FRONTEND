@@ -29,6 +29,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                 function RestaurantesListComponent(_servicioRestaurantes) {
                     this._servicioRestaurantes = _servicioRestaurantes;
                     this.titulo = "Lista de restaurantes";
+                    this.loading = true;
                 }
                 RestaurantesListComponent.prototype.ngOnInit = function () {
                     console.log("restaurantes-list component cargando");
@@ -40,6 +41,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                         .subscribe(function (restaurantes) {
                         _this.restaurantes = restaurantes;
                         console.log(_this.restaurantes);
+                        _this.loading = false;
                     }, function (error) {
                         _this.error = error;
                         console.log(JSON.stringify(error) + " este es el error");

@@ -123,3 +123,11 @@ body{
 .restaurante__direccion{
     font-size: 16px;
 }
+
+.loading{
+    text-decoration: none;
+}
+
+.loading-list img{
+    width: 50px;
+}

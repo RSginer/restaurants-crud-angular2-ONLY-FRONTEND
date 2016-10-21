@@ -31,6 +31,7 @@ export class RestaurantesListComponent implements OnInit{
     public restaurantes: Restaurante[];
     public error:string;
     public mensajeDeError:string
+    public loading:boolean = true;
 
     constructor(private _servicioRestaurantes: RestaurantesService){}
     
@@ -47,6 +48,7 @@ export class RestaurantesListComponent implements OnInit{
                 restaurantes => {
                     this.restaurantes=restaurantes;
                     console.log(this.restaurantes);
+                    this.loading=false;
                 },
                 error => {
                     this.error = <any> error;

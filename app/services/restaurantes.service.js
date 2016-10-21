@@ -39,6 +39,18 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                     this._http = _http;
                     this.restaurantesUrl = "http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/";
                 }
+                /*
+                * Modelo de datos:
+                *      [
+                *       {
+                            "id":1,
+                            "nombre":"Burger King",
+                            "direccion":"Calle tal y cual",
+                            "descripcion":"tal y cual",
+                            "precio":"100000"}
+                        }
+                       ]
+                */
                 RestaurantesService.prototype.getRestaurantes = function () {
                     var options = this.configurarCabeceras();
                     return this._http.get(this.restaurantesUrl, options).map(this.obtenerDatos)

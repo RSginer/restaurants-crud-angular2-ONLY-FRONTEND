@@ -14,7 +14,19 @@ export class RestaurantesService extends Service{
     public constructor(private _http: Http) { 
         super();
     }
-
+    
+    /*
+    * Modelo de datos:
+    *      [
+    *       {
+                "id":1,
+                "nombre":"Burger King",
+                "direccion":"Calle tal y cual",
+                "descripcion":"tal y cual",
+                "precio":"100000"}
+            }
+           ]
+    */
     public getRestaurantes(): Observable<Restaurante[]> {
         let options = this.configurarCabeceras();
         return this._http.get(this.restaurantesUrl, options).map(this.obtenerDatos)

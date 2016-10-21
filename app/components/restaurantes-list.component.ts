@@ -15,19 +15,6 @@ import {Restaurante} from "../model/Restaurante";
 // Clase del componente donde iran los datos y funcionalidades
 export class RestaurantesListComponent implements OnInit{
     public titulo:string = "Lista de restaurantes";
-    
-    /*
-    * Modelo de datos:
-    *      [
-    *       {
-                "id":1,
-                "nombre":"Burger King",
-                "direccion":"Calle tal y cual",
-                "descripcion":"tal y cual",
-                "precio":"100000"}
-            }
-           ]
-    */
     public restaurantes: Restaurante[];
     public error:string;
     public mensajeDeError:string

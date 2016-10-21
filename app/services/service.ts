@@ -13,13 +13,7 @@ export class Service {
     }
 
     public tratarErrores(error: any) {
-        if (error.status == 400) {
-        } else if (error.status == 500) {
-            alert("INTERNAL_SERVER_ERROR 500 (Error en el servidor)");
-        } else {
-            alert("Error: "  + JSON.stringify(error));
-        }
-        return Observable.throw(error._body)
+        return Observable.throw(error)
     }
 
 }

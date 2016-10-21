@@ -32,7 +32,7 @@ export class RestaurantesListComponent implements OnInit{
     public error:string;
     public mensajeDeError:string
     public loading:boolean = true;
-
+    
     constructor(private _servicioRestaurantes: RestaurantesService){}
     
     
@@ -52,7 +52,7 @@ export class RestaurantesListComponent implements OnInit{
                 },
                 error => {
                     this.error = <any> error;
-                    console.log(JSON.stringify(error) + " este es el error");
+                    console.log("Ocurrio un error :" + JSON.stringify(error));
                 }
             );
     }

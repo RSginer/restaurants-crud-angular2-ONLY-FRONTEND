@@ -35,15 +35,7 @@ System.register(["angular2/http", "rxjs/Observable", "angular2/core"], function(
                     return options;
                 };
                 Service.prototype.tratarErrores = function (error) {
-                    if (error.status == 400) {
-                    }
-                    else if (error.status == 500) {
-                        alert("INTERNAL_SERVER_ERROR 500 (Error en el servidor)");
-                    }
-                    else {
-                        alert("Error: " + JSON.stringify(error));
-                    }
-                    return Observable_1.Observable.throw(error._body);
+                    return Observable_1.Observable.throw(error);
                 };
                 Service = __decorate([
                     core_1.Injectable(), 

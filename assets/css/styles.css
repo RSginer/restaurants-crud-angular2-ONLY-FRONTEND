@@ -124,10 +124,13 @@ body{
     font-size: 16px;
 }
 
-.loading{
-    text-decoration: none;
+.restaurantes-list__loading img{
+    width: 50px;
+    margin-left: auto;
 }
 
-.loading-list img{
-    width: 50px;
+.restaurantes-list__error{
+    color:red;
+    font-weight: bold;
+    font-size: 25px;
 }

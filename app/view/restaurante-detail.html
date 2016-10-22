@@ -1,9 +1,14 @@
-<h1>Detalles del restaurante</h1>
-<div *ngIf="restaurante">
-    {{restaurante.id}}
-    {{restaurante.nombre}}
-    {{restaurante.direccion}}
-    {{restaurante.descripcion}}
-    {{restaurante.imagen}}
-    {{restaurante.precio}}
+<div *ngIf="restaurante" class="restaurante">
+    <h1 class="restaurante__nombre">{{restaurante.nombre}}</h1>
+	<p class="restaurante__direccion">{{restaurante.direccion}}</p>
+	<p class="restaurante__descripcion">{{restaurante.descripcion}}</p>
+	<p class="restaurante__imagen">{{restaurante.imagen}}</p>
+	<p  class="restaurante__precio">
+        <span  [ngSwitch]="restaurante.precio">
+            <span *ngSwitchWhen="'bajo'">Entre 2.50€ y 7€</span>
+            <span *ngSwitchWhen="'medio'">Entre 7€ y 15€</span>
+            <span *ngSwitchWhen="'alto'">Entre 15€ y 50€</span>
+            <span *ngSwitchDefault>Precio desconocido</span>
+        </span>
+    </p>
 </div>

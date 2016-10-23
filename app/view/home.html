@@ -3,6 +3,13 @@
     <img class="header__logo" src="../assets/images/angular.png"/>
             <h1 class="header__titulo">{{titulo}}</h1></a>
 </header>
+<nav id="nav">
+    <ul>
+        <a [routerLink]="['Home']"><li>Inicio</li></a>
+         <a [routerLink]="['Home']"><li>Crear restaurante</li></a>
+        <a [routerLink]="['Home']"><li>¿Dónde comer hoy?</li></a>
+    </ul>
+</nav>
 <main class="main">
     <router-outlet></router-outlet>
 </main>

@@ -4,8 +4,10 @@ body{
 
 #content{
     width: 90%;
-    min-height: 500px;
     margin:0 auto;
+    display: block;
+    overflow: auto;
+    padding-bottom: 20px;
     margin-top: 10px;
     border: 1px solid #CCC;
     border-radius: 5px;
@@ -27,7 +29,7 @@ body{
     margin:0;
     font-weight: bold;
     text-align: center;
-    font-size: 2em;
+    font-size: 45px;
     float: left;
 }
 
@@ -35,7 +37,7 @@ body{
     display: block;
     float:left;
     margin-top:-10px;
-    width: 50px;
+    width: 85px;
 }
 
 .loading{
@@ -48,12 +50,13 @@ body{
 
 .main{
     padding:0px 15px;
-    margin-top: 10px;
+    margin-top: 30px;
     color:#444;
 }
 
 .list-title{
-    font-size: 20px;
+    font-size: 30px;
+    color:grey;
     font-weight: bold;
 }
 
@@ -67,8 +70,7 @@ body{
     width: 100%;
     border:1px solid #DDD;
     border-radius: 4px;
-    height: 101px;
-    line-height: 1.5;
+    height: 201px;
     float: left;
     padding: 0px 0px;
     margin-top:10px;
@@ -76,8 +78,8 @@ body{
 }
 
 .restaurante__image{
-    height: 99px;
-    width: 100px;
+    height: 199px;
+    width: 200px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     background: #CCC;
@@ -85,8 +87,8 @@ body{
 }
 
 .restaurante__data{
-    word-break: break-word;
     float: left;
+    line-height: 70px;
     height: 100px;
     margin-left: 20px;
 }
@@ -94,14 +96,16 @@ body{
 .restaurante__title{
     color:#444;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 35px;
 }
 
 .btn{
-    font-size: 13px;
+    font-size: 20px;
     border:1px solid #1976D2;
     box-shadow: 0px 0px 5px #DDD;
-    padding: 0px 5px;
+    padding: 0px 15px;
+    height: 35px;
+    line-height: 32px;
     text-decoration: none;
     color:white;
     background: #0074d9;
@@ -109,7 +113,6 @@ body{
     margin-left: 2px;
     margin-right: 2px;
     border-radius: 4px;
-    margin-top:14px;
 }
 
 .btn--editar{
@@ -121,7 +124,7 @@ body{
     border-color: #F54747;
 }
 .restaurante__direccion{
-    font-size: 16px;
+    font-size: 22px;
 }
 
 .restaurantes-list__loading img{
@@ -159,4 +162,40 @@ body{
 .restaurante__descripcion{
     color:grey;
     margin-bottom: 10px;
+}
+
+#nav {
+    width:100%;
+    background:#004c96;
+    font-size: 20px;
+    border-bottom: 1px solid #1976D2;
+    padding-right: 20px;
+    height: 35px;
+
+   
+}
+
+#nav li{
+    display: inline-block;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+}
+#nav  a{
+    text-decoration: none;
+     color:white;
+     height: 35px;
+
+}
+
+@keyframes menuhover{
+    from{background-color:#004c96;}
+    to{ background-color:#1976D2;}
+}
+#nav li:hover{
+  background-color:#1976D2;
+  animation-name: menuhover;
+  animation-duration:300ms;
 }

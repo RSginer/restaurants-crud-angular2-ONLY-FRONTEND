@@ -12,7 +12,7 @@ export class RestauranteDetailComponent implements OnInit {
     public parametro;
     public error;
     public restaurante;
-
+    public loading = true;
     constructor(
         private _restaurantesService: RestaurantesService,
         private _routeParams: RouteParams,
@@ -35,6 +35,7 @@ export class RestauranteDetailComponent implements OnInit {
                 if (this.restaurante == undefined) {
                     this._router.navigate(['Home']);
                 }
+                this.loading=false;
             },
             error => {
                 this.error = <any>error;

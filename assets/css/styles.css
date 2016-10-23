@@ -137,12 +137,26 @@ body{
 
 .restaurante{
     text-align: justify;
-    border: 1px solid blue;
     width: 100%;
     margin: 0 auto;
 }
 
 .restaurante__nombre{
     font-size: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
+}
+
+.restaurante__precio{
+    color:white;
+    margin-bottom: 10px;
+    background-color: yellowgreen;
+    box-shadow: 1px 2px 10px green;
+    padding:5px;
+    text-align: center;
+    width:200px;
+}
+.restaurante__descripcion{
+    color:grey;
+    margin-bottom: 10px;
 }

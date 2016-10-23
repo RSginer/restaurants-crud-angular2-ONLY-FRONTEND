@@ -29,6 +29,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._restaurantesService = _restaurantesService;
                     this._routeParams = _routeParams;
                     this._router = _router;
+                    this.loading = true;
                 }
                 RestauranteDetailComponent.prototype.ngOnInit = function () {
                     this.parametro = this._routeParams.get("id");
@@ -43,6 +44,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         if (_this.restaurante == undefined) {
                             _this._router.navigate(['Home']);
                         }
+                        _this.loading = false;
                     }, function (error) {
                         _this.error = error;
                         _this._router.navigate(['Home']);

@@ -1,5 +1,6 @@
 <div *ngIf="restaurante" class="restaurante">
     <h1 class="restaurante__nombre">{{restaurante.nombre}}</h1>
+    <p class="restaurante__imagen">{{restaurante.imagen}}</p>
     	<p  class="restaurante__precio">
         <span  [ngSwitch]="restaurante.precio">
             <span *ngSwitchWhen="'bajo'">Entre 2.50€ y 7€</span>
@@ -10,7 +11,7 @@
     </p>
 	<p class="restaurante__direccion">{{restaurante.direccion}}</p>
 	<p class="restaurante__descripcion">{{restaurante.descripcion}}</p>
-	<p class="restaurante__imagen">{{restaurante.imagen}}</p>
+	
 </div>
 <span class="restaurantes-list__loading" *ngIf="loading && error==null" id="loading-list">
     <img src="../../assets/images/loading.gif"/>

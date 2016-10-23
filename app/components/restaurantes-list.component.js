@@ -28,7 +28,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
             RestaurantesListComponent = (function () {
                 function RestaurantesListComponent(_servicioRestaurantes) {
                     this._servicioRestaurantes = _servicioRestaurantes;
-                    this.titulo = "Lista de restaurantes";
+                    this.titulo = "Listado de restaurantes";
                     this.loading = true;
                 }
                 RestaurantesListComponent.prototype.ngOnInit = function () {

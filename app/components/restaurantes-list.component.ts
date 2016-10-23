@@ -14,7 +14,7 @@ import {Restaurante} from "../model/Restaurante";
 
 // Clase del componente donde iran los datos y funcionalidades
 export class RestaurantesListComponent implements OnInit {
-    public titulo: string = "Lista de restaurantes";
+    public titulo: string = "Listado de restaurantes";
     public restaurantes: Restaurante[];
     public error: string;
     public mensajeDeError: string

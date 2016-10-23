@@ -64,6 +64,8 @@ body{
 
 .restaurantes-list{
     margin-top:10px;
+    width: 100%;
+    margin: auto;
     font-size: 18px;
     margin-right: auto;
     margin-left: auto;
@@ -72,7 +74,8 @@ body{
 
 .restaurantes-list__restaurante{
     width: 47%;
-    margin: 15px;
+    overflow:hidden;
+    margin:15px;
     border:1px solid #DDD;
     border-radius: 4px;
     height: 201px;
@@ -121,20 +124,29 @@ body{
     border-radius: 4px;
 }
 
+.btn:hover{
+    background-color:#0095ff;
+    border-color: #0095ff;
+}
+
 .btn--editar{
     background: #0A0;
     border-color: #59a600;
+}
+.btn--editar:hover{
+    background: #00cb00;
+    border-color: #00cb00;
 }
 .btn--eliminar{
     background: #E23237;
     border-color: #F54747;
 }
+.btn--eliminar:hover{
+    background: red;
+    border-color: #F54747;
+}
 .restaurante__direccion{
     font-size: 22px;
-}
-.restaurantes-list__loading{
-    width: 100%;
-    text-align: center;
 }
 .restaurantes-list__loading img{
     width: 50px;

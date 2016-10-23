@@ -2,7 +2,7 @@
 
 <ul class="restaurantes-list">
     <li class="restaurantes-list__error" *ngIf="error != null">Lo sentimos, hubo un error {{error.status}} :( </li>
-    <li class="restaurantes-list__loading" *ngIf="loading && error==null" id="loading-list"><img src="../../assets/images/loading.gif"/></li>
+    <li class="loading" *ngIf="loading && error==null" id="loading-list"><img src="../../assets/images/loading.gif"/></li>
     <li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
         <div class="restaurante__image"></div>
         <div class="restaurante__data">

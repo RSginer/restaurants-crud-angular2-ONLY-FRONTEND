@@ -11,37 +11,37 @@ import {Restaurante} from "../model/Restaurante";
     directives: [ROUTER_DIRECTIVES],
     providers: [RestaurantesService]
 })
- 
-// Clase del componente donde iran los datos y funcionalidades
-export class RestaurantesListComponent implements OnInit{
-    public titulo:string = "Lista de restaurantes";
-    public restaurantes: Restaurante[];
-    public error:string;
-    public mensajeDeError:string
-    public loading:boolean = true;
-    
-    constructor(private _servicioRestaurantes: RestaurantesService){}
-    
-    
 
-    ngOnInit(){
-        console.log("restaurantes-list component cargando");
+// Clase del componente donde iran los datos y funcionalidades
+export class RestaurantesListComponent implements OnInit {
+    public titulo: string = "Lista de restaurantes";
+    public restaurantes: Restaurante[];
+    public error: string;
+    public mensajeDeError: string
+    public loading: boolean = true;
+
+    constructor(private _servicioRestaurantes: RestaurantesService) { }
+
+
+
+    ngOnInit() {
         this.getRestaurantes();
     }
 
-    getRestaurantes(){
+    getRestaurantes() {
         this._servicioRestaurantes.getRestaurantes()
             .subscribe(
-                res => {
-                    this.restaurantes=res;
-                    console.log(this.restaurantes);
-                    this.loading=false;
-                },
-                error => {
-                    this.error = <any> error;
-                    console.log("Ocurrio un error :" + JSON.stringify(error));
-                }
+            res => {
+                this.restaurantes = res;
+                this.loading = false;
+            },
+            error => {
+                this.error = <any>error;
+                console.error("ERROR: " + error.status);
+                console.info("INFORMACION DEL ERROR");
+                console.info(error._body);
+            }
             );
     }
 
- }
+}

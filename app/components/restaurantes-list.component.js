@@ -32,7 +32,6 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                     this.loading = true;
                 }
                 RestaurantesListComponent.prototype.ngOnInit = function () {
-                    console.log("restaurantes-list component cargando");
                     this.getRestaurantes();
                 };
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
@@ -40,11 +39,12 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                     this._servicioRestaurantes.getRestaurantes()
                         .subscribe(function (res) {
                         _this.restaurantes = res;
-                        console.log(_this.restaurantes);
                         _this.loading = false;
                     }, function (error) {
                         _this.error = error;
-                        console.log("Ocurrio un error :" + JSON.stringify(error));
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
                     });
                 };
                 RestaurantesListComponent = __decorate([

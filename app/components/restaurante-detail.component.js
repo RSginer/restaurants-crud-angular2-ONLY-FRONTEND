@@ -25,21 +25,30 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
             }],
         execute: function() {
             RestauranteDetailComponent = (function () {
-                function RestauranteDetailComponent(_restaurantesService, _routeParams) {
+                function RestauranteDetailComponent(_restaurantesService, _routeParams, _router) {
                     this._restaurantesService = _restaurantesService;
                     this._routeParams = _routeParams;
+                    this._router = _router;
                 }
                 RestauranteDetailComponent.prototype.ngOnInit = function () {
                     this.parametro = this._routeParams.get("id");
                     this.getRestauranteById(this.parametro);
+                    console.log(this.restaurante);
                 };
                 RestauranteDetailComponent.prototype.getRestauranteById = function (id) {
                     var _this = this;
                     this._restaurantesService.getRestauranteById(id)
                         .subscribe(function (res) {
                         _this.restaurante = res;
+                        if (_this.restaurante == undefined) {
+                            _this._router.navigate(['Home']);
+                        }
                     }, function (error) {
                         _this.error = error;
+                        _this._router.navigate(['Home']);
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
                     });
                 };
                 RestauranteDetailComponent = __decorate([
@@ -48,7 +57,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         templateUrl: "app/view/restaurante-detail.html",
                         providers: [restaurantes_service_1.RestaurantesService]
                     }), 
-                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.RouteParams])
+                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.RouteParams, router_1.Router])
                 ], RestauranteDetailComponent);
                 return RestauranteDetailComponent;
             }());

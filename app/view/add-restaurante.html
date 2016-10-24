@@ -1,30 +1,40 @@
-<h1>{{titulo}}</h1>
-<br>
-<form #formresturante="ngForm" (ngSubmit)="onSubmit()">
-	<label>Nombre</label><br>
-	<input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
-    <span *ngIf="!nombre.valid" class="invalido">Debes rellenar el nombre</span>
-    <span *ngIf="nombre.valid" class="valido"><i class="fa fa-check"></i></span>
-    <br>
-	<label>Direccion</label><br>
-	<input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion" required/>
-    <span class="invalido" *ngIf="!direccion.valid">Debes rellenar la dirección</span>
-    <span *ngIf="direccion.valid" class="valido"><i class="fa fa-check"></i></span>
-    <br>
-	<label>Descripcion</label>
-    <br>
-	<textarea #descripcion="ngForm" ngControl="descripcion" [(ngModel)]="restaurante.descripcion"required>
+<div class="crear-restaurante">
+	<h1 class="crear-restaurante__titulo">{{titulo}}</h1>
+	<br>
+	<form #formresturante="ngForm" (ngSubmit)="onSubmit()">
+		<label>Nombre</label>
+        <span *ngIf="!nombre.valid" class="invalido">Debes rellenar el nombre</span>
+		<span *ngIf="nombre.valid" class="valido"><i class="fa fa-check"></i></span>
+        <br>
+		<input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
+		
+		<br>
+		<label>Direccion</label>
+        <span class="invalido" *ngIf="!direccion.valid">Debes rellenar la dirección</span>
+		<span *ngIf="direccion.valid" class="valido"><i class="fa fa-check"></i></span>
+        <br>
+		<input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion" required/>
+		
+		<br>
+		<label>Descripcion</label>
+        <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
+		<span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
+		<br>
+		<textarea #descripcion="ngForm" ngControl="descripcion" [(ngModel)]="restaurante.descripcion" required>
     </textarea>
-      <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
-      <span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
-    <br>
-	<select  #precio="ngForm" ngControl="precio"  [(ngModel)]="restaurante.precio" required>
-        <option value="Bajo">BAJO</option>
-         <option value="Medio">MEDIO</option>
-          <option value="Alto">ALTO</option>
-	</select>
-    <span class="invalido" *ngIf="!precio.valid">Debes seleccionar un precio</span>
-    <span *ngIf="precio.valid" class="valido"><i class="fa fa-check"></i></span>
-    <br>
-	<input type="submit" value="Crear restaurante" [disabled]="!formresturante.form.valid"/>
-</form>
+		
+		<br>
+		<label>Precio</label>
+		<span class="invalido" *ngIf="!precio.valid">Debes seleccionar un precio</span>
+		<span *ngIf="precio.valid" class="valido"><i class="fa fa-check"></i></span>
+		<br>
+		<select #precio="ngForm" ngControl="precio" [(ngModel)]="restaurante.precio" required>
+            <option value="Bajo">BAJO</option>
+            <option value="Medio">MEDIO</option>
+            <option value="Alto">ALTO</option>
+	    </select>
+
+		<br>
+		<input class="btn" type="submit" value="Crear restaurante" [disabled]="!formresturante.form.valid" />
+	</form>
+</div>

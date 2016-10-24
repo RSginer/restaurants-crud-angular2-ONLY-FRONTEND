@@ -116,6 +116,8 @@ body{
     height: 35px;
     line-height: 32px;
     text-decoration: none;
+    cursor: pointer;
+    margin:2px;
     color:white;
     background: #0074d9;
     float: left;
@@ -128,7 +130,11 @@ body{
     background-color:#0095ff;
     border-color: #0095ff;
 }
-
+.btn:disabled{
+    cursor: help;
+    background-color: lightgrey;
+    border-color: lightgrey;
+}
 .btn--editar{
     background: #0A0;
     border-color: #59a600;
@@ -224,7 +230,7 @@ body{
 
 select.ng-invalid, textarea.ng-invalid, input.ng-invalid{
     border:1px solid red;
-    box-shadow: 0px 0px 4px red;
+
 }
 
 select.ng-valid, textarea.ng-valid, input.ng-valid{
@@ -234,7 +240,7 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
 
 .invalido{
     color:red;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .invalido:before{
@@ -246,4 +252,35 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
     color:green;
     font-size: 12px;
     margin-right: 5px;
+}
+
+.crear-restaurante{
+    width: 90%;
+    display: block;
+        margin: 0 auto;
+}
+
+.crear-restaurante label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.crear-restaurante input, textarea, select {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.crear-restaurante textarea{
+    height: 80px;
+}
+
+.crear-restaurante__titulo{
+   text-align: center;
+    font-size: 20px;
+    color:lightgrey;
+    text-transform: uppercase;
+    letter-spacing: 20px;
 }

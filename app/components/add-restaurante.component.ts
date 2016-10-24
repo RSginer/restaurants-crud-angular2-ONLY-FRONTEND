@@ -9,7 +9,7 @@ import {Restaurante} from "../model/restaurante";
     providers: [RestaurantesService]
 })
 export class AddRestaurantesComponent implements OnInit {
-    public titulo = "Formulario para añadir restaurante";
+    public titulo = "Crear un nuevo restaurante";
     public restaurante:Restaurante;
     public error;
 

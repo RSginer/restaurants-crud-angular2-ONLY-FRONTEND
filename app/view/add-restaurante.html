@@ -18,7 +18,7 @@
       <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
       <span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
     <br>
-	<select #precio>
+	<select #precio ngControl="precio" [(ngModel)]="restaurante.precio">
         <option value="bajo">Bajo</option>
         <option value="medio">Medio</option>
         <option value="alto">Alto</option>

@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../services/restaurantes.service", "../model/restaurante"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "../services/restaurantes.service", "../model/restaurante"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(["angular2/core", "../services/restaurantes.service", "../model/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, restaurantes_service_1, restaurante_1;
+    var core_1, router_1, restaurantes_service_1, restaurante_1;
     var AddRestaurantesComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (restaurantes_service_1_1) {
                 restaurantes_service_1 = restaurantes_service_1_1;
@@ -25,9 +28,25 @@ System.register(["angular2/core", "../services/restaurantes.service", "../model/
             }],
         execute: function() {
             AddRestaurantesComponent = (function () {
-                function AddRestaurantesComponent() {
+                function AddRestaurantesComponent(_restaurantesService, _router) {
+                    this._restaurantesService = _restaurantesService;
+                    this._router = _router;
                     this.titulo = "Formulario para añadir restaurante";
                 }
+                AddRestaurantesComponent.prototype.onSubmit = function () {
+                    var _this = this;
+                    this._restaurantesService.addRestaurante(this.restaurante)
+                        .subscribe(function (res) {
+                        alert("Restaurante añadido correctamente ");
+                    }, function (error) {
+                        alert("Error al añadir restaurante");
+                        _this.error = error;
+                        _this._router.navigate(['Home']);
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
+                    });
+                };
                 AddRestaurantesComponent.prototype.ngOnInit = function () {
                     this.restaurante = new restaurante_1.Restaurante(null, null, null, null, null, null);
                 };
@@ -37,7 +56,7 @@ System.register(["angular2/core", "../services/restaurantes.service", "../model/
                         templateUrl: "app/view/add-restaurante.html",
                         providers: [restaurantes_service_1.RestaurantesService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.Router])
                 ], AddRestaurantesComponent);
                 return AddRestaurantesComponent;
             }());

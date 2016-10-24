@@ -71,6 +71,11 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                     return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/" + id, options).map(this.obtenerDatos)
                         .catch(this.tratarErrores);
                 };
+                RestaurantesService.prototype.addRestaurante = function (restaurante) {
+                    var json = JSON.stringify(restaurante);
+                    var options = this.configurarCabeceras();
+                    return this._http.post("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/", json, options).map(this.obtenerDatos).catch(this.tratarErrores);
+                };
                 RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };
                 RestaurantesService = __decorate([
                     core_1.Injectable(), 

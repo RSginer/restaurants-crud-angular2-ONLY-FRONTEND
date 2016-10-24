@@ -6,6 +6,7 @@ export class Restaurante{
      public imagen:string;
      public precio:string;
      
+
      constructor(
          id:number,
          nombre:string,

@@ -34,7 +34,6 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                 RestauranteDetailComponent.prototype.ngOnInit = function () {
                     this.parametro = this._routeParams.get("id");
                     this.getRestauranteById(this.parametro);
-                    console.log(this.restaurante);
                 };
                 RestauranteDetailComponent.prototype.getRestauranteById = function (id) {
                     var _this = this;

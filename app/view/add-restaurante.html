@@ -1,17 +1,27 @@
 <h1>{{titulo}}</h1>
 <br>
 <form #formresturante="ngForm" (ngSubmit)="onSubmit()">
-    <label>Nombre</label><br>
-    <input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre"/><br>
-    <label>Direccion</label><br>
-    <input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion"/><br>
-    <label>Descripcion</label><br>
-    <textarea #descripcion="ngForm" ngControl="descripcion" [(ngModel)]="restaurante.descripcion">
-    </textarea><br>
-    <select #precio>
+	<label>Nombre</label><br>
+	<input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
+    <span *ngIf="!nombre.valid" class="invalido">Debes rellenar el nombre</span>
+    <span *ngIf="nombre.valid" class="valido"><i class="fa fa-check"></i></span>
+    <br>
+	<label>Direccion</label><br>
+	<input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion" required/>
+    <span class="invalido" *ngIf="!direccion.valid">Debes rellenar la dirección</span>
+    <span *ngIf="direccion.valid" class="valido"><i class="fa fa-check"></i></span>
+    <br>
+	<label>Descripcion</label>
+    <br>
+	<textarea #descripcion="ngForm" ngControl="descripcion" [(ngModel)]="restaurante.descripcion"required>
+    </textarea>
+      <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
+      <span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
+    <br>
+	<select #precio>
         <option value="bajo">Bajo</option>
         <option value="medio">Medio</option>
         <option value="alto">Alto</option>
     </select><br>
-    <input type="submit" value="Crear restaurante"/>
+	<input type="submit" value="Crear restaurante" [disabled]="!formresturante.form.valid"/>
 </form>

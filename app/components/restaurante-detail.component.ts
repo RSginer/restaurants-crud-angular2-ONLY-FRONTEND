@@ -23,7 +23,6 @@ export class RestauranteDetailComponent implements OnInit {
     ngOnInit() {
         this.parametro = this._routeParams.get("id");
         this.getRestauranteById(this.parametro);
-        console.log(this.restaurante);
 
     }
 

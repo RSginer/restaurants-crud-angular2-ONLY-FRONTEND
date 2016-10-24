@@ -221,3 +221,29 @@ body{
   animation-name: menuhover;
   animation-duration:300ms;
 }
+
+select.ng-invalid, textarea.ng-invalid, input.ng-invalid{
+    border:1px solid red;
+    box-shadow: 0px 0px 4px red;
+}
+
+select.ng-valid, textarea.ng-valid, input.ng-valid{
+    border:1px solid green;
+     box-shadow: 0px 0px 3px green;
+}
+
+.invalido{
+    color:red;
+    font-size: 12px;
+}
+
+.invalido:before{
+    content:'\f00d';
+    margin-right: 5px;
+    font-family: FontAwesome;
+}
+.valido{
+    color:green;
+    font-size: 12px;
+    margin-right: 5px;
+}

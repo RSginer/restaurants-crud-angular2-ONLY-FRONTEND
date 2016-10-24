@@ -18,10 +18,13 @@
       <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
       <span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
     <br>
-	<select #precio ngControl="precio" [(ngModel)]="restaurante.precio">
-        <option value="bajo">Bajo</option>
-        <option value="medio">Medio</option>
-        <option value="alto">Alto</option>
-    </select><br>
+	<select  #precio="ngForm" ngControl="precio"  [(ngModel)]="restaurante.precio" required>
+        <option value="Bajo">BAJO</option>
+         <option value="Medio">MEDIO</option>
+          <option value="Alto">ALTO</option>
+	</select>
+    <span class="invalido" *ngIf="!precio.valid">Debes seleccionar un precio</span>
+    <span *ngIf="precio.valid" class="valido"><i class="fa fa-check"></i></span>
+    <br>
 	<input type="submit" value="Crear restaurante" [disabled]="!formresturante.form.valid"/>
 </form>

@@ -15,6 +15,7 @@ export class AddRestaurantesComponent implements OnInit {
 
 constructor(private _restaurantesService: RestaurantesService,
             private _router: Router){}
+    
 
     onSubmit(){
         this._restaurantesService.addRestaurante(this.restaurante)

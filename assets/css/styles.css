@@ -308,7 +308,7 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
         width: 100%;
     }
 }
-@media only screen and (min-width:621px) and (max-width:799px){
+@media only screen and (min-width:649px) and (max-width:799px){
         #nav {
             text-align: center;
             background:#004c96;

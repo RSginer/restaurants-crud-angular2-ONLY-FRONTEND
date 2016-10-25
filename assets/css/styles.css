@@ -85,6 +85,7 @@ body{
     color:gray;
 }
 
+
 .restaurante__image{
     height: 199px;
     width: 200px;
@@ -284,3 +285,108 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
     text-transform: uppercase;
     letter-spacing: 20px;
 }
+
+
+/*
+    MEDIA QUERYS
+ */
+
+ @media (max-width: 1366px) { 
+    
+    .restaurantes-list__restaurante{
+        width: 100%;
+    }
+}
+
+
+ @media (max-width: 768px) { 
+    #content{
+        width: 100%;
+        margin:0;
+    }
+    .restaurantes-list__restaurante{
+        width: 100%;
+    }
+}
+
+     @media (max-width: 425px) { 
+         body{
+             margin:0;
+         }
+         #content{
+             width: 100%;
+             margin:0;
+         }
+
+         .restaurantes-list__restaurante{
+             margin:0;
+             margin-bottom: 10px;
+             margin-top:10px;
+         }
+         .restaurante__image{
+             width: 100%;
+             opacity: 0.5;
+         }
+         .restaurante__data{
+             width: 80%;
+             overflow: visible !important;
+             position: absolute;
+             
+         }
+         .restaurante__title{
+             font-size: 30px;
+         }
+
+         .restaurante__direccion{
+             font-size: 14px;
+         }
+
+         .btn{
+             line-height: 22px;
+             height: 30px;
+             padding: 5px;
+             margin-right: 5px;
+             font-size: 14px;
+         }
+        .list-title ,h1.crear-restaurante__titulo{
+            font-size: 18px !important;
+            letter-spacing: 10px;        
+        }
+        .header__titulo{
+            font-size: 40px;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+        }
+        .header{
+            text-align: center;
+            height: 140px;
+        }
+        .header__logo{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            float:none;
+        }
+        #nav {
+            text-align: center;
+            background:#004c96;
+            font-size: 22px;
+            border-bottom: 1px solid #1976D2;
+            padding-right: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #nav li{
+            display: block;
+            cursor: pointer;
+        }
+        #nav  a{
+            text-decoration: none;
+            color:white;
+            padding-bottom: 3px;
+           
+        }
+
+     }

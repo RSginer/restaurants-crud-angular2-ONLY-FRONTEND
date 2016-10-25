@@ -37,9 +37,9 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     var _this = this;
                     this._restaurantesService.addRestaurante(this.restaurante)
                         .subscribe(function (res) {
-                        alert("Restaurante añadido correctamente ");
+                        _this._router.navigate(['Home']);
                     }, function (error) {
-                        alert("Error al añadir restaurante");
+                        alert("Error al añadir restaurante " + error.status);
                         _this.error = error;
                         _this._router.navigate(['Home']);
                         console.error("ERROR: " + error.status);

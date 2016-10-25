@@ -21,10 +21,10 @@ constructor(private _restaurantesService: RestaurantesService,
         this._restaurantesService.addRestaurante(this.restaurante)
         .subscribe(
             res => {
-                alert("Restaurante añadido correctamente ");
+                 this._router.navigate(['Home']);
             },
             error => {
-                alert("Error al añadir restaurante");
+                alert("Error al añadir restaurante " + error.status);
                 this.error = <any>error;
                 this._router.navigate(['Home']);
                 console.error("ERROR: " + error.status);

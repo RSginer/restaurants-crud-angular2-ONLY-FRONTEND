@@ -45,6 +45,7 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                     }, function (error) {
                         alert("Ocurrio un error al borrar el restaurante");
                     });
+                    this.confirmado = null;
                 };
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
                     var _this = this;

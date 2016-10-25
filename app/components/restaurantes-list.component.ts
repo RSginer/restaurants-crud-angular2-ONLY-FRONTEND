@@ -42,6 +42,7 @@ export class RestaurantesListComponent implements OnInit {
                 alert("Ocurrio un error al borrar el restaurante");
             }
         );
+        this.confirmado=null;
     }
 
     getRestaurantes() {

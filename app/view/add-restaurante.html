@@ -9,14 +9,14 @@
 		<input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
 		
 		<br>
-		<label>Direccion</label>
+		<label>Dirección</label>
         <span class="invalido" *ngIf="!direccion.valid">Debes rellenar la dirección</span>
 		<span *ngIf="direccion.valid" class="valido"><i class="fa fa-check"></i></span>
         <br>
 		<input type="text" #direccion="ngForm" ngControl="direccion" [(ngModel)]="restaurante.direccion" required/>
 		
 		<br>
-		<label>Descripcion</label>
+		<label>Descripción</label>
         <span class="invalido" *ngIf="!descripcion.valid">Debes rellenar la descripción</span>
 		<span *ngIf="descripcion.valid" class="valido"><i class="fa fa-check"></i></span>
 		<br>

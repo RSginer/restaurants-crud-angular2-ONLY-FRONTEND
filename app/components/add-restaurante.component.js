@@ -28,9 +28,10 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
             }],
         execute: function() {
             AddRestaurantesComponent = (function () {
-                function AddRestaurantesComponent(_restaurantesService, _router) {
+                function AddRestaurantesComponent(_restaurantesService, _router, _routeParams) {
                     this._restaurantesService = _restaurantesService;
                     this._router = _router;
+                    this._routeParams = _routeParams;
                     this.titulo = "Crear un nuevo restaurante";
                 }
                 AddRestaurantesComponent.prototype.onSubmit = function () {
@@ -38,11 +39,10 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._restaurantesService.addRestaurante(this.restaurante)
                         .subscribe(function (res) {
                         _this.restaurante = res;
-                        _this._router.navigate(['Restaurante', { id: res.id }]);
+                        _this._router.navigate(['Home']);
                     }, function (error) {
                         alert("Error al añadir restaurante " + error.status);
                         _this.error = error;
-                        _this._router.navigate(['Home']);
                         console.error("ERROR: " + error.status);
                         console.info("INFORMACION DEL ERROR");
                         console.info(error._body);
@@ -57,7 +57,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         templateUrl: "app/view/add-restaurante.html",
                         providers: [restaurantes_service_1.RestaurantesService]
                     }), 
-                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.Router])
+                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.Router, router_1.RouteParams])
                 ], AddRestaurantesComponent);
                 return AddRestaurantesComponent;
             }());

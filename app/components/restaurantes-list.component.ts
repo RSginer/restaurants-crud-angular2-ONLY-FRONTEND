@@ -19,6 +19,7 @@ export class RestaurantesListComponent implements OnInit {
     public error: string;
     public mensajeDeError: string
     public loading: boolean = true;
+    public confirmado;
 
     constructor(private _servicioRestaurantes: RestaurantesService) { }
 
@@ -26,6 +27,21 @@ export class RestaurantesListComponent implements OnInit {
 
     ngOnInit() {
         this.getRestaurantes();
+    }
+
+    onBorrarRestaurante(id: number) {
+        this.confirmado=id;
+    }
+
+    confirmedBorrarRestaurante() {
+        this.loading = true;
+        this._servicioRestaurantes.removeRestaurante(this.confirmado).subscribe(
+            res => {
+                this.getRestaurantes();
+            }, error => {
+                alert("Ocurrio un error al borrar el restaurante");
+            }
+        );
     }
 
     getRestaurantes() {

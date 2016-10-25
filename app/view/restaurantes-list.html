@@ -1,22 +1,31 @@
 <h1 class="list-title">{{titulo}}</h1>
-
+   
 <ul class="restaurantes-list">
-    <li class="restaurantes-list__error" *ngIf="error != null">Lo sentimos, hubo un error {{error.status}} :( </li>
-    <li class="loading" *ngIf="loading && error==null" id="loading-list">
-        <img src="../../assets/images/loading.gif"/>
-    </li>
-    <li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
-        <div class="restaurante__image"></div>
-        <div class="restaurante__data">
-            <h4 class="restaurante__title">{{restaurante.nombre}}</h4>
-            <p class="restaurante__direccion"><i class="fa fa-map-marker"></i> {{restaurante.direccion}}</p>
-            <p>
-                <a [routerLink]="['Restaurante',{id: restaurante.id}]" class="btn btn--ver">
-                    <i class="fa fa-eye"></i> Ver</a>
-                <a [routerLink]="['EditarRestaurante',{id: restaurante.id}]" class="btn btn--editar"><i class="fa fa-pencil"></i> Editar</a>
-                <a href="" class="btn btn--eliminar"><i class="fa fa-trash"></i> Eliminar</a>
-            </p>
-        </div>
-    </li>
 
+	<li class="restaurantes-list__error" *ngIf="error != null">Lo sentimos, hubo un error {{error.status}} :( </li>
+	<li class="loading" *ngIf="loading && error==null" id="loading-list">
+		<img src="../../assets/images/loading.gif" />
+	</li>
+	<li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
+         
+		<div class="restaurante__image"></div>
+		<div class="restaurante__data">
+			<h4 class="restaurante__title">{{restaurante.nombre}}</h4>
+			<p class="restaurante__direccion"><i class="fa fa-map-marker"></i> {{restaurante.direccion}}</p>
+			<p>
+				<a [routerLink]="['Restaurante',{id: restaurante.id}]" class="btn btn--ver">
+					<i class="fa fa-eye"></i> Ver</a>
+				<a [routerLink]="['EditarRestaurante',{id: restaurante.id}]" class="btn btn--editar"><i class="fa fa-pencil"></i> Editar</a>
+				<a (click)="onBorrarRestaurante(restaurante.id)" class="btn btn--eliminar"><i class="fa fa-trash"></i> Eliminar</a>
+			</p>
+           
+		</div>
+         <div class="seguro" *ngIf="confirmado==restaurante.id">
+               <p>¿Seguro qué quieres eliminarlo?</p>
+                <a (click)="confirmado=null" class="btn"><i class="fa fa-close"></i> Cancelar</a>
+                <a (click)="confirmedBorrarRestaurante()" class="btn btn--eliminar"><i class="fa fa-trash"></i> Si, eliminalo</a>
+            </div>
+	</li>
+	<li *ngIf="error==null && loading == false && restaurantes.length == 0">
+		<p>No hay ningún restaurante todavía</p><br> <a [routerLink]="['CrearRestaurante']" class="btn"><i class="fa fa-plus"></i> Crear uno ahora</a></li>
 </ul>

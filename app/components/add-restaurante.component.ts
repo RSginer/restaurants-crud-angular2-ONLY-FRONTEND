@@ -14,7 +14,8 @@ export class AddRestaurantesComponent implements OnInit {
     public error;
 
 constructor(private _restaurantesService: RestaurantesService,
-            private _router: Router){}
+            private _router: Router,
+            private _routeParams:RouteParams){}
     
 
     onSubmit(){
@@ -22,12 +23,11 @@ constructor(private _restaurantesService: RestaurantesService,
         .subscribe(
             res => {
                 this.restaurante=res;
-                 this._router.navigate(['Restaurante',{id:res.id}]);
+                this._router.navigate(['Home']);
             },
             error => {
                 alert("Error al añadir restaurante " + error.status);
                 this.error = <any>error;
-                this._router.navigate(['Home']);
                 console.error("ERROR: " + error.status);
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);

@@ -81,6 +81,10 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                     var options = this.configurarCabeceras();
                     return this._http.put("http://localhost:8084/restaurants-angular2-spring-hibernate/api/update-restaurante/" + restaurante.id, json, options).map(this.obtenerDatos).catch(this.tratarErrores);
                 };
+                RestaurantesService.prototype.removeRestaurante = function (id) {
+                    return this._http.delete('http://localhost:8084/restaurants-angular2-spring-hibernate/api/delete-restaurante/' + id)
+                        .catch(this.tratarErrores);
+                };
                 RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };
                 RestaurantesService = __decorate([
                     core_1.Injectable(), 

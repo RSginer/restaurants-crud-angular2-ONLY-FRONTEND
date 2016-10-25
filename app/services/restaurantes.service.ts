@@ -67,6 +67,11 @@ export class RestaurantesService extends Service{
              options).map(this.obtenerDatos).catch(this.tratarErrores);
     }
 
+    public removeRestaurante(id:number){
+        return this._http.delete('http://localhost:8084/restaurants-angular2-spring-hibernate/api/delete-restaurante/' + id)
+        .catch(this.tratarErrores);
+    }
+
      private obtenerDatos(r: Response) { return r.json() } 
 
 }

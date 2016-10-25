@@ -34,6 +34,18 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                 RestaurantesListComponent.prototype.ngOnInit = function () {
                     this.getRestaurantes();
                 };
+                RestaurantesListComponent.prototype.onBorrarRestaurante = function (id) {
+                    this.confirmado = id;
+                };
+                RestaurantesListComponent.prototype.confirmedBorrarRestaurante = function () {
+                    var _this = this;
+                    this.loading = true;
+                    this._servicioRestaurantes.removeRestaurante(this.confirmado).subscribe(function (res) {
+                        _this.getRestaurantes();
+                    }, function (error) {
+                        alert("Ocurrio un error al borrar el restaurante");
+                    });
+                };
                 RestaurantesListComponent.prototype.getRestaurantes = function () {
                     var _this = this;
                     this._servicioRestaurantes.getRestaurantes()

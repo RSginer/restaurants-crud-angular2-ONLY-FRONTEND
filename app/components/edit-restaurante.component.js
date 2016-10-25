@@ -11,7 +11,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, restaurantes_service_1, restaurante_1;
-    var AddRestaurantesComponent;
+    var EditRestauranteComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -27,19 +27,20 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                 restaurante_1 = restaurante_1_1;
             }],
         execute: function() {
-            AddRestaurantesComponent = (function () {
-                function AddRestaurantesComponent(_restaurantesService, _router) {
+            EditRestauranteComponent = (function () {
+                function EditRestauranteComponent(_restaurantesService, _router, _routeParams) {
                     this._restaurantesService = _restaurantesService;
                     this._router = _router;
-                    this.titulo = "Crear un nuevo restaurante";
+                    this._routeParams = _routeParams;
+                    this.titulo = "Editar restaurante";
                 }
-                AddRestaurantesComponent.prototype.onSubmit = function () {
+                EditRestauranteComponent.prototype.onSubmit = function () {
                     var _this = this;
-                    this._restaurantesService.addRestaurante(this.restaurante)
-                        .subscribe(function (res) {
+                    console.log(this.restaurante);
+                    this._restaurantesService.updateRestaurante(this.restaurante).subscribe(function (res) {
+                        _this.restaurante = res;
                         _this._router.navigate(['Restaurante', { id: _this.restaurante.id }]);
                     }, function (error) {
-                        alert("Error al añadir restaurante " + error.status);
                         _this.error = error;
                         _this._router.navigate(['Home']);
                         console.error("ERROR: " + error.status);
@@ -47,21 +48,35 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         console.info(error._body);
                     });
                 };
-                AddRestaurantesComponent.prototype.ngOnInit = function () {
-                    this.restaurante = new restaurante_1.Restaurante(null, null, null, null, null, null);
+                EditRestauranteComponent.prototype.ngOnInit = function () {
+                    this.restaurante = new restaurante_1.Restaurante(parseInt(this._routeParams.get("id")), null, null, null, null, null);
+                    this.getRestauranteById(this.restaurante.id);
                 };
-                AddRestaurantesComponent = __decorate([
+                EditRestauranteComponent.prototype.getRestauranteById = function (id) {
+                    var _this = this;
+                    this._restaurantesService.getRestauranteById(id)
+                        .subscribe(function (res) {
+                        _this.restaurante = res;
+                    }, function (error) {
+                        _this.error = error;
+                        _this._router.navigate(['Home']);
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
+                    });
+                };
+                EditRestauranteComponent = __decorate([
                     core_1.Component({
-                        selector: "add-restaurante",
+                        selector: "edit-restaurante",
                         templateUrl: "app/view/add-restaurante.html",
                         providers: [restaurantes_service_1.RestaurantesService]
                     }), 
-                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.Router])
-                ], AddRestaurantesComponent);
-                return AddRestaurantesComponent;
+                    __metadata('design:paramtypes', [restaurantes_service_1.RestaurantesService, router_1.Router, router_1.RouteParams])
+                ], EditRestauranteComponent);
+                return EditRestauranteComponent;
             }());
-            exports_1("AddRestaurantesComponent", AddRestaurantesComponent);
+            exports_1("EditRestauranteComponent", EditRestauranteComponent);
         }
     }
 });
-//# sourceMappingURL=add-restaurante.component.js.map
+//# sourceMappingURL=edit-restaurante.component.js.map

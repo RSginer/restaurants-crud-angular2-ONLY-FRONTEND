@@ -58,6 +58,15 @@ export class RestaurantesService extends Service{
              options).map(this.obtenerDatos).catch(this.tratarErrores);
     }
 
+    public updateRestaurante(restaurante:Restaurante){
+         let json = JSON.stringify(restaurante);
+        let options = this.configurarCabeceras();
+        return this._http.put(
+            "http://localhost:8084/restaurants-angular2-spring-hibernate/api/update-restaurante/" + restaurante.id,
+             json,
+             options).map(this.obtenerDatos).catch(this.tratarErrores);
+    }
+
      private obtenerDatos(r: Response) { return r.json() } 
 
 }

@@ -22,8 +22,9 @@
 		</div>
          <div class="seguro" *ngIf="confirmado==restaurante.id">
                <p>¿Seguro que quieres eliminarlo?</p>
-                <a (click)="confirmado=null" class="btn"><i class="fa fa-close"></i> Cancelar</a>
+               
                 <a (click)="confirmedBorrarRestaurante()" class="btn btn--eliminar"><i class="fa fa-trash"></i> Si, eliminalo</a>
+                 <a (click)="confirmado=null" class="btn"><i class="fa fa-close"></i> Cancelar</a>
             </div>
 	</li>
 	<li *ngIf="error==null && loading == false && restaurantes.length == 0">

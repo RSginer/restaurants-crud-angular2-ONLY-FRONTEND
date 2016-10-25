@@ -21,7 +21,8 @@ constructor(private _restaurantesService: RestaurantesService,
         this._restaurantesService.addRestaurante(this.restaurante)
         .subscribe(
             res => {
-                 this._router.navigate(['Restaurante',{id:this.restaurante.id}]);
+                this.restaurante=res;
+                 this._router.navigate(['Restaurante',{id:res.id}]);
             },
             error => {
                 alert("Error al añadir restaurante " + error.status);

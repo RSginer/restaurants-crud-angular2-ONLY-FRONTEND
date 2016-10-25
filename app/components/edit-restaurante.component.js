@@ -39,7 +39,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     console.log(this.restaurante);
                     this._restaurantesService.updateRestaurante(this.restaurante).subscribe(function (res) {
                         _this.restaurante = res;
-                        _this._router.navigate(['Restaurante', { id: _this.restaurante.id }]);
+                        _this._router.navigate(['Restaurante', { id: res.id }]);
                     }, function (error) {
                         _this.error = error;
                         _this._router.navigate(['Home']);

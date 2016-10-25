@@ -23,7 +23,7 @@ export class EditRestauranteComponent implements OnInit {
         this._restaurantesService.updateRestaurante(this.restaurante).subscribe(
             res =>{
                 this.restaurante=res;
-                this._router.navigate(['Restaurante',{id:this.restaurante.id}]);
+                this._router.navigate(['Restaurante',{id:res.id}]);
             },
             error=>{
                 this.error = <any>error;

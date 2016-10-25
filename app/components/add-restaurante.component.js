@@ -37,7 +37,8 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     var _this = this;
                     this._restaurantesService.addRestaurante(this.restaurante)
                         .subscribe(function (res) {
-                        _this._router.navigate(['Restaurante', { id: _this.restaurante.id }]);
+                        _this.restaurante = res;
+                        _this._router.navigate(['Restaurante', { id: res.id }]);
                     }, function (error) {
                         alert("Error al añadir restaurante " + error.status);
                         _this.error = error;

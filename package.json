@@ -1,5 +1,5 @@
 {
-  "name": "restaurant-crud-in-angular2",
+  "name": "restaurant-crud-in-angular2-ONLY-FRONTEND",
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",

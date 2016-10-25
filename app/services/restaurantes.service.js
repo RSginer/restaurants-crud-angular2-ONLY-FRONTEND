@@ -37,7 +37,7 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                 function RestaurantesService(_http) {
                     _super.call(this);
                     this._http = _http;
-                    this.restaurantesUrl = "";
+                    this.baseURL = "http://localhost:8084/api";
                 }
                 /*
                 * Modelo de datos:
@@ -53,7 +53,7 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                 */
                 RestaurantesService.prototype.getRestaurantes = function () {
                     var options = this.configurarCabeceras();
-                    return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes", options).map(this.obtenerDatos)
+                    return this._http.get(this.baseURL + "/restaurantes", options).map(this.obtenerDatos)
                         .catch(this.tratarErrores);
                 };
                 /*
@@ -68,21 +68,21 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                   */
                 RestaurantesService.prototype.getRestauranteById = function (id) {
                     var options = this.configurarCabeceras();
-                    return this._http.get("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/" + id, options).map(this.obtenerDatos)
+                    return this._http.get(this.baseURL + "/restaurantes/" + id, options).map(this.obtenerDatos)
                         .catch(this.tratarErrores);
                 };
                 RestaurantesService.prototype.addRestaurante = function (restaurante) {
                     var json = JSON.stringify(restaurante);
                     var options = this.configurarCabeceras();
-                    return this._http.post("http://localhost:8084/restaurants-angular2-spring-hibernate/api/restaurantes/", json, options).map(this.obtenerDatos).catch(this.tratarErrores);
+                    return this._http.post(this.baseURL + "/restaurantes/", json, options).map(this.obtenerDatos).catch(this.tratarErrores);
                 };
                 RestaurantesService.prototype.updateRestaurante = function (restaurante) {
                     var json = JSON.stringify(restaurante);
                     var options = this.configurarCabeceras();
-                    return this._http.put("http://localhost:8084/restaurants-angular2-spring-hibernate/api/update-restaurante/" + restaurante.id, json, options).map(this.obtenerDatos).catch(this.tratarErrores);
+                    return this._http.put(this.baseURL + "/update-restaurante/" + restaurante.id, json, options).map(this.obtenerDatos).catch(this.tratarErrores);
                 };
                 RestaurantesService.prototype.removeRestaurante = function (id) {
-                    return this._http.delete('http://localhost:8084/restaurants-angular2-spring-hibernate/api/delete-restaurante/' + id)
+                    return this._http.delete(this.baseURL + '/delete-restaurante/' + id)
                         .catch(this.tratarErrores);
                 };
                 RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };

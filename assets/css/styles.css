@@ -7,6 +7,11 @@ body{
     width: 30%;
     height: 30%;
 }
+ .restaurante__title{
+             font-size: 30px;
+        line-height: 1;
+        margin-top:25px;
+         }
 .imagen-subida{
     width: 202px;
     margin-bottom: 10px;
@@ -123,7 +128,7 @@ input[type="file"]{
 .restaurantes-list__restaurante{
     width: 48%;
     overflow:hidden;
-    margin:15px;
+    margin:14px;
     border:1px solid #DDD;
     border-radius: 4px;
     height: 201px;
@@ -224,6 +229,7 @@ input[type="file"]{
     font-size: 40px;
     margin-bottom: 10px;
     font-weight: bold;
+    
 }
 
 .restaurante__precio{
@@ -357,6 +363,7 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
    text-align: center;
     font-size: 20px;
     color:lightgrey;
+    
     text-transform: uppercase;
     letter-spacing: 20px;
 }
@@ -427,11 +434,14 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
 
          .restaurantes-list__restaurante{
              margin:0;
+             height: 110%;
              margin-bottom: 10px;
+            
              margin-top:10px;
          }
          .restaurante__image{
              width: 100%;
+             
              opacity: 0.3;
          }
          .image-restaurante-list{
@@ -446,6 +456,7 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
          }
          .restaurante__title{
              font-size: 30px;
+        
          }
 
          .restaurante__direccion{

@@ -174,7 +174,13 @@ input[type="file"]{
     font-weight: bold;
     font-size: 35px;
 }
-
+.error404{
+    text-align: center;
+}
+.error404 img{
+    height: 25%;
+    width: 25%;
+}
 .btn{
     font-size: 20px;
     border:1px solid #1976D2;

@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 ErrorComponent = __decorate([
                     core_1.Component({
                         selector: 'error',
-                        templateUrl: 'app/view/error.html',
+                        templateUrl: 'app/view/error.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ErrorComponent);

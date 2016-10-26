@@ -178,8 +178,11 @@ input[type="file"]{
     text-align: center;
 }
 .error404 img{
-    height: 25%;
-    width: 25%;
+    width: 30%;
+}
+.error__p{
+    font-size: 40px;
+    font-weight: bold;
 }
 .btn{
     font-size: 20px;

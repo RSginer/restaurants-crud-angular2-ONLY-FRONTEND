@@ -15,7 +15,6 @@ export class AddRestaurantesComponent implements OnInit {
     public rutaImagen:string ="/assets/images/imagen-default.jpg";
     public loadingImagen:boolean=false;
     public imagenesParaSubir: Array<File>;
-    private baseURL: string = "http://localhost:8084/api";
 
 constructor(private _restaurantesService: RestaurantesService,
             private _router: Router,
@@ -29,11 +28,14 @@ constructor(private _restaurantesService: RestaurantesService,
                this.restaurante.imagen = result.toString();
                this.rutaImagen = result.toString();
                this.loadingImagen=false;
-               console.log(result);
            },
            error =>{
-               this.error =<any> error;
-               console.log(error);
+               this.error = <any>error;
+               alert("Error al subir la imagen " + error.status);
+               this.error = <any>error;
+               console.error("ERROR: " + error.status);
+               console.info("INFORMACION DEL ERROR");
+               console.info(error._body);
            }
        );
    }

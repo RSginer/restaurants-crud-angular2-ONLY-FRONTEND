@@ -14,7 +14,6 @@ export class EditRestauranteComponent implements OnInit {
     public error;
     public loadingImagen: boolean = false;
     public imagenesParaSubir: Array<File>;
-    private baseURL: string = "http://localhost:8084/api";
     public rutaImagen: string;
 
     constructor(private _restaurantesService: RestaurantesService,
@@ -22,18 +21,22 @@ export class EditRestauranteComponent implements OnInit {
         private _routeParams: RouteParams) { }
 
     subirImagen(fileInput: any) {
-        this.loadingImagen=true;
+        this.loadingImagen = true;
         this.imagenesParaSubir = <Array<File>>fileInput.target.files;
         this._restaurantesService.subirImagen(this.imagenesParaSubir[0]).then(
             result => {
-                this.loadingImagen=false;
+                this.loadingImagen = false;
                 this.restaurante.imagen = result.toString();
                 this.rutaImagen = result.toString();
                 console.log(result);
             },
             error => {
                 this.error = <any>error;
-                console.log(error);
+                alert("Error al subir la imagen " + error.status);
+                this.error = <any>error;
+                console.error("ERROR: " + error.status);
+                console.info("INFORMACION DEL ERROR");
+                console.info(error._body);
             }
         );
     }

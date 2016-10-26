@@ -35,7 +35,6 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this.titulo = "Crear un nuevo restaurante";
                     this.rutaImagen = "/assets/images/imagen-default.jpg";
                     this.loadingImagen = false;
-                    this.baseURL = "http://localhost:8084/api";
                 }
                 AddRestaurantesComponent.prototype.subirImagen = function (fileInput) {
                     var _this = this;
@@ -45,10 +44,13 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         _this.restaurante.imagen = result.toString();
                         _this.rutaImagen = result.toString();
                         _this.loadingImagen = false;
-                        console.log(result);
                     }, function (error) {
                         _this.error = error;
-                        console.log(error);
+                        alert("Error al subir la imagen " + error.status);
+                        _this.error = error;
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
                     });
                 };
                 AddRestaurantesComponent.prototype.onSubmit = function () {

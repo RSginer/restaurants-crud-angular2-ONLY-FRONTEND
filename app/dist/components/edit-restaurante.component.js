@@ -34,7 +34,6 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._routeParams = _routeParams;
                     this.titulo = "Editar restaurante";
                     this.loadingImagen = false;
-                    this.baseURL = "http://localhost:8084/api";
                 }
                 EditRestauranteComponent.prototype.subirImagen = function (fileInput) {
                     var _this = this;
@@ -47,7 +46,11 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         console.log(result);
                     }, function (error) {
                         _this.error = error;
-                        console.log(error);
+                        alert("Error al subir la imagen " + error.status);
+                        _this.error = error;
+                        console.error("ERROR: " + error.status);
+                        console.info("INFORMACION DEL ERROR");
+                        console.info(error._body);
                     });
                 };
                 EditRestauranteComponent.prototype.onSubmit = function () {

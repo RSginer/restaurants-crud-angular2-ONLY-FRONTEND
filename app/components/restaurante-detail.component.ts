@@ -32,13 +32,13 @@ export class RestauranteDetailComponent implements OnInit {
             res => {
                 this.restaurante = res;
                 if (this.restaurante == undefined) {
-                    this._router.navigate(['Home']);
+                    this._router.navigate(['Error']);
                 }
                 this.loading=false;
             },
             error => {
                 this.error = <any>error;
-                this._router.navigate(['Home']);
+                this._router.navigate(['Error']);
                 console.error("ERROR: " + error.status);
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);

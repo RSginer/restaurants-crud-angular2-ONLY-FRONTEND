@@ -41,12 +41,12 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                         .subscribe(function (res) {
                         _this.restaurante = res;
                         if (_this.restaurante == undefined) {
-                            _this._router.navigate(['Home']);
+                            _this._router.navigate(['Error']);
                         }
                         _this.loading = false;
                     }, function (error) {
                         _this.error = error;
-                        _this._router.navigate(['Home']);
+                        _this._router.navigate(['Error']);
                         console.error("ERROR: " + error.status);
                         console.info("INFORMACION DEL ERROR");
                         console.info(error._body);

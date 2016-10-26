@@ -40,7 +40,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     var _this = this;
                     this.loadingImagen = true;
                     this.imagenesParaSubir = fileInput.target.files;
-                    this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(function (result) {
+                    this._restaurantesService.subirImagen(this.baseURL + "/upload-file", [], this.imagenesParaSubir[0]).then(function (result) {
                         _this.loadingImagen = false;
                         _this.restaurante.imagen = result.toString();
                         _this.rutaImagen = result.toString();
@@ -48,26 +48,6 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     }, function (error) {
                         _this.error = error;
                         console.log(error);
-                    });
-                };
-                EditRestauranteComponent.prototype.factoryFileRequest = function (url, params, files) {
-                    console.log(files);
-                    return new Promise(function (resolve, reject) {
-                        var formData = new FormData();
-                        var xhr = new XMLHttpRequest();
-                        formData.append("file", files[0], files[0].name);
-                        xhr.onreadystatechange = function () {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 200) {
-                                    resolve(JSON.parse(xhr.response));
-                                }
-                                else {
-                                    reject(xhr.response);
-                                }
-                            }
-                        };
-                        xhr.open("POST", url, true);
-                        xhr.send(formData);
                     });
                 };
                 EditRestauranteComponent.prototype.onSubmit = function () {

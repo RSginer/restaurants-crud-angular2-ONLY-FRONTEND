@@ -85,6 +85,25 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                     return this._http.delete(this.baseURL + '/delete-restaurante/' + id)
                         .catch(this.tratarErrores);
                 };
+                RestaurantesService.prototype.subirImagen = function (url, params, file) {
+                    return new Promise(function (resolve, reject) {
+                        var formData = new FormData();
+                        var xhr = new XMLHttpRequest();
+                        formData.append("file", file, file.name);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    resolve(JSON.parse(xhr.response));
+                                }
+                                else {
+                                    reject(xhr.response);
+                                }
+                            }
+                        };
+                        xhr.open("POST", url, true);
+                        xhr.send(formData);
+                    });
+                };
                 RestaurantesService.prototype.obtenerDatos = function (r) { return r.json(); };
                 RestaurantesService = __decorate([
                     core_1.Injectable(), 

@@ -72,7 +72,24 @@ export class RestaurantesService extends Service{
         .catch(this.tratarErrores);
     }
 
-
+    public subirImagen(url: string, params: Array<string>, file:File){
+        return new Promise((resolve, reject) => {
+            let formData: any = new FormData();
+            let xhr = new XMLHttpRequest();
+            formData.append("file", file, file.name);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            }
+            xhr.open("POST", url, true);
+            xhr.send(formData);
+        });
+    }
 
      private obtenerDatos(r: Response) { return r.json() } 
 

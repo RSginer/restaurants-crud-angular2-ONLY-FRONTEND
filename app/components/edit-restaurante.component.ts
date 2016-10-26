@@ -24,7 +24,7 @@ export class EditRestauranteComponent implements OnInit {
     subirImagen(fileInput: any) {
         this.loadingImagen=true;
         this.imagenesParaSubir = <Array<File>>fileInput.target.files;
-        this._restaurantesService.subirImagen(this.baseURL + "/upload-file", [], this.imagenesParaSubir[0]).then(
+        this._restaurantesService.subirImagen(this.imagenesParaSubir[0]).then(
             result => {
                 this.loadingImagen=false;
                 this.restaurante.imagen = result.toString();

@@ -85,7 +85,8 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                     return this._http.delete(this.baseURL + '/delete-restaurante/' + id)
                         .catch(this.tratarErrores);
                 };
-                RestaurantesService.prototype.subirImagen = function (url, params, file) {
+                RestaurantesService.prototype.subirImagen = function (file) {
+                    var _this = this;
                     return new Promise(function (resolve, reject) {
                         var formData = new FormData();
                         var xhr = new XMLHttpRequest();
@@ -100,7 +101,7 @@ System.register(["angular2/core", "angular2/http", "./service", "rxjs/add/operat
                                 }
                             }
                         };
-                        xhr.open("POST", url, true);
+                        xhr.open("POST", _this.baseURL + "/upload-file", true);
                         xhr.send(formData);
                     });
                 };

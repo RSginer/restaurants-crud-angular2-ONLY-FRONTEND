@@ -72,7 +72,7 @@ export class RestaurantesService extends Service{
         .catch(this.tratarErrores);
     }
 
-    public subirImagen(url: string, params: Array<string>, file:File){
+    public subirImagen(file:File){
         return new Promise((resolve, reject) => {
             let formData: any = new FormData();
             let xhr = new XMLHttpRequest();
@@ -86,7 +86,7 @@ export class RestaurantesService extends Service{
                     }
                 }
             }
-            xhr.open("POST", url, true);
+            xhr.open("POST", this.baseURL + "/upload-file", true);
             xhr.send(formData);
         });
     }

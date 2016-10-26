@@ -40,7 +40,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     var _this = this;
                     this.loadingImagen = true;
                     this.imagenesParaSubir = fileInput.target.files;
-                    this._restaurantesService.subirImagen(this.baseURL + "/upload-file", [], this.imagenesParaSubir[0]).then(function (result) {
+                    this._restaurantesService.subirImagen(this.imagenesParaSubir[0]).then(function (result) {
                         _this.loadingImagen = false;
                         _this.restaurante.imagen = result.toString();
                         _this.rutaImagen = result.toString();

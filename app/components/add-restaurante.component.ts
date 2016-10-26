@@ -24,7 +24,7 @@ constructor(private _restaurantesService: RestaurantesService,
    subirImagen(fileInput:any){
        this.loadingImagen=true;
        this.imagenesParaSubir = <Array<File>>fileInput.target.files;
-       this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(
+       this._restaurantesService.subirImagen(this.imagenesParaSubir[0]).then(
            result =>{
                this.restaurante.imagen = result.toString();
                this.rutaImagen = result.toString();
@@ -36,27 +36,6 @@ constructor(private _restaurantesService: RestaurantesService,
                console.log(error);
            }
        );
-   }
-
-
-   factoryFileRequest(url:string, params: Array<string>, files:Array<File>){
-       console.log(files);
-       return new Promise((resolve, reject)=>{
-           let formData:any = new FormData();
-           let xhr = new XMLHttpRequest();
-           formData.append("file", files[0], files[0].name);
-           xhr.onreadystatechange = function(){
-               if(xhr.readyState == 4){
-                   if(xhr.status == 200){
-                       resolve(JSON.parse(xhr.response));
-                   }else{
-                       reject(xhr.response);
-                   }
-               }
-           }
-    xhr.open("POST",url,true);
-    xhr.send(formData);   
-    });
    }
 
     onSubmit(){

@@ -1,7 +1,14 @@
 <div class="crear-restaurante">
 	<h1 class="crear-restaurante__titulo">{{titulo}}</h1>
 	<br>
-	<form #formresturante="ngForm" (ngSubmit)="onSubmit()">
+	<form #formresturante="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+		<label>Imagen</label>
+		<input (change)="subirImagen($event)" type="file" accept="image/*"/>
+		<div class="imagen-subida">
+			<img *ngIf="loadingImagen===false" class="imagen-add-restaurante" src="{{rutaImagen}}"/>
+			<img *ngIf="loadingImagen==true" class="loading-imagen" src="assets/images/loading.gif"/>
+		</div>
+		
 		<label>Nombre</label>
         <span *ngIf="!nombre.valid" class="invalido">Debes rellenar el nombre</span>
 		<span *ngIf="nombre.valid" class="valido"><i class="fa fa-check"></i></span>
@@ -33,8 +40,10 @@
             <option value="Medio">MEDIO</option>
             <option value="Alto">ALTO</option>
 	    </select>
-
 		<br>
+	
+	
+		
 		<input class="btn" type="submit" value="{{titulo}}" [disabled]="!formresturante.form.valid" />
 	</form>
 </div>

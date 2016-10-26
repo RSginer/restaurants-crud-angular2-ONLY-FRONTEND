@@ -8,7 +8,9 @@
 	</li>
 	<li *ngFor="#restaurante of restaurantes" class="restaurantes-list__restaurante">
          
-		<div class="restaurante__image"></div>
+		<div class="restaurante__image">
+			<img class="image-restaurante-list" src="{{restaurante.imagen}}">
+		</div>
 		<div class="restaurante__data">
 			<h4 class="restaurante__title">{{restaurante.nombre}}</h4>
 			<p class="restaurante__direccion"><i class="fa fa-map-marker"></i> {{restaurante.direccion}}</p>

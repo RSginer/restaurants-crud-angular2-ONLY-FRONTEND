@@ -12,11 +12,52 @@ export class AddRestaurantesComponent implements OnInit {
     public titulo = "Crear un nuevo restaurante";
     public restaurante:Restaurante;
     public error;
+    public rutaImagen:string ="/assets/images/imagen-default.jpg";
+    public loadingImagen:boolean=false;
+    public imagenesParaSubir: Array<File>;
+    private baseURL: string = "http://localhost:8084/api";
 
 constructor(private _restaurantesService: RestaurantesService,
             private _router: Router,
             private _routeParams:RouteParams){}
     
+   subirImagen(fileInput:any){
+       this.loadingImagen=true;
+       this.imagenesParaSubir = <Array<File>>fileInput.target.files;
+       this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(
+           result =>{
+               this.restaurante.imagen = result.toString();
+               this.rutaImagen = result.toString();
+               this.loadingImagen=false;
+               console.log(result);
+           },
+           error =>{
+               this.error =<any> error;
+               console.log(error);
+           }
+       );
+   }
+
+
+   factoryFileRequest(url:string, params: Array<string>, files:Array<File>){
+       console.log(files);
+       return new Promise((resolve, reject)=>{
+           let formData:any = new FormData();
+           let xhr = new XMLHttpRequest();
+           formData.append("file", files[0], files[0].name);
+           xhr.onreadystatechange = function(){
+               if(xhr.readyState == 4){
+                   if(xhr.status == 200){
+                       resolve(JSON.parse(xhr.response));
+                   }else{
+                       reject(xhr.response);
+                   }
+               }
+           }
+    xhr.open("POST",url,true);
+    xhr.send(formData);   
+    });
+   }
 
     onSubmit(){
         this._restaurantesService.addRestaurante(this.restaurante)

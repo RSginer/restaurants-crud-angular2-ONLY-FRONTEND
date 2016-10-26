@@ -33,7 +33,44 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._router = _router;
                     this._routeParams = _routeParams;
                     this.titulo = "Crear un nuevo restaurante";
+                    this.rutaImagen = "/assets/images/imagen-default.jpg";
+                    this.loadingImagen = false;
+                    this.baseURL = "http://localhost:8084/api";
                 }
+                AddRestaurantesComponent.prototype.subirImagen = function (fileInput) {
+                    var _this = this;
+                    this.loadingImagen = true;
+                    this.imagenesParaSubir = fileInput.target.files;
+                    this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(function (result) {
+                        _this.restaurante.imagen = result.toString();
+                        _this.rutaImagen = result.toString();
+                        _this.loadingImagen = false;
+                        console.log(result);
+                    }, function (error) {
+                        _this.error = error;
+                        console.log(error);
+                    });
+                };
+                AddRestaurantesComponent.prototype.factoryFileRequest = function (url, params, files) {
+                    console.log(files);
+                    return new Promise(function (resolve, reject) {
+                        var formData = new FormData();
+                        var xhr = new XMLHttpRequest();
+                        formData.append("file", files[0], files[0].name);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    resolve(JSON.parse(xhr.response));
+                                }
+                                else {
+                                    reject(xhr.response);
+                                }
+                            }
+                        };
+                        xhr.open("POST", url, true);
+                        xhr.send(formData);
+                    });
+                };
                 AddRestaurantesComponent.prototype.onSubmit = function () {
                     var _this = this;
                     this._restaurantesService.addRestaurante(this.restaurante)

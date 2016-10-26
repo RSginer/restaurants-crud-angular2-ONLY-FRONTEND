@@ -33,7 +33,41 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._router = _router;
                     this._routeParams = _routeParams;
                     this.titulo = "Editar restaurante";
+                    this.loadingImagen = false;
+                    this.baseURL = "http://localhost:8084/api";
                 }
+                EditRestauranteComponent.prototype.subirImagen = function (fileInput) {
+                    var _this = this;
+                    this.imagenesParaSubir = fileInput.target.files;
+                    this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(function (result) {
+                        _this.restaurante.imagen = result.toString();
+                        _this.rutaImagen = result.toString();
+                        console.log(result);
+                    }, function (error) {
+                        _this.error = error;
+                        console.log(error);
+                    });
+                };
+                EditRestauranteComponent.prototype.factoryFileRequest = function (url, params, files) {
+                    console.log(files);
+                    return new Promise(function (resolve, reject) {
+                        var formData = new FormData();
+                        var xhr = new XMLHttpRequest();
+                        formData.append("file", files[0], files[0].name);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    resolve(JSON.parse(xhr.response));
+                                }
+                                else {
+                                    reject(xhr.response);
+                                }
+                            }
+                        };
+                        xhr.open("POST", url, true);
+                        xhr.send(formData);
+                    });
+                };
                 EditRestauranteComponent.prototype.onSubmit = function () {
                     var _this = this;
                     console.log(this.restaurante);
@@ -57,6 +91,12 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._restaurantesService.getRestauranteById(id)
                         .subscribe(function (res) {
                         _this.restaurante = res;
+                        if (_this.restaurante.imagen != null) {
+                            _this.rutaImagen = _this.restaurante.imagen;
+                        }
+                        else {
+                            _this.rutaImagen = "/assets/images/imagen-default.jpg";
+                        }
                     }, function (error) {
                         _this.error = error;
                         _this._router.navigate(['Home']);

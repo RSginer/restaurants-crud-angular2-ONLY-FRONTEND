@@ -3,6 +3,28 @@ body{
     background:url("/assets/images/background-pattern.jpg");
 }
 
+.imagen-subida{
+    width: 200px;
+    margin-bottom: 10px;
+    height: 200px;
+    background: #DDD;
+    text-align: center;
+    border-radius: 4px;
+}
+.imagen-add-restaurante{
+     width: 200px;
+     border-radius: 4px;
+     height: 200px;
+}
+.loading-imagen{
+    height: 50%;
+    margin-top:50px;
+    width: 50%;
+}
+.image-restaurante-list{
+    width: 199px;
+    height: 199px;
+}
 #content{
     width: 90%;
     background-color: white;
@@ -375,6 +397,10 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
              width: 100%;
              opacity: 0.5;
          }
+         .image-restaurante-list{
+    width: 100%;
+   
+}
          .restaurante__data{
              width: 80%;
              overflow: visible !important;
@@ -386,7 +412,8 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
          }
 
          .restaurante__direccion{
-             font-size: 14px;
+             font-size: 18px;
+             color:black;
          }
 
          .btn{

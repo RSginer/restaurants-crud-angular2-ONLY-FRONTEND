@@ -20,7 +20,7 @@ export class EditRestauranteComponent implements OnInit {
     constructor(private _restaurantesService: RestaurantesService,
         private _router: Router,
         private _routeParams: RouteParams) { }
-        
+
     subirImagen(fileInput: any) {
         this.loadingImagen=true;
         this.imagenesParaSubir = <Array<File>>fileInput.target.files;
@@ -37,9 +37,6 @@ export class EditRestauranteComponent implements OnInit {
             }
         );
     }
-
-
- 
 
     onSubmit() {
         console.log(this.restaurante);

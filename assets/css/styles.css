@@ -395,7 +395,7 @@ select.ng-valid, textarea.ng-valid, input.ng-valid{
          }
          .restaurante__image{
              width: 100%;
-             opacity: 0.5;
+             opacity: 0.3;
          }
          .image-restaurante-list{
     width: 100%;

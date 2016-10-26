@@ -38,8 +38,10 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                 }
                 EditRestauranteComponent.prototype.subirImagen = function (fileInput) {
                     var _this = this;
+                    this.loadingImagen = true;
                     this.imagenesParaSubir = fileInput.target.files;
                     this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(function (result) {
+                        _this.loadingImagen = false;
                         _this.restaurante.imagen = result.toString();
                         _this.rutaImagen = result.toString();
                         console.log(result);

@@ -21,9 +21,11 @@ export class EditRestauranteComponent implements OnInit {
         private _router: Router,
         private _routeParams: RouteParams) { }
     subirImagen(fileInput: any) {
+        this.loadingImagen=true;
         this.imagenesParaSubir = <Array<File>>fileInput.target.files;
         this.factoryFileRequest(this.baseURL + "/upload-file", [], this.imagenesParaSubir).then(
             result => {
+                this.loadingImagen=false;
                 this.restaurante.imagen = result.toString();
                 this.rutaImagen = result.toString();
                 console.log(result);

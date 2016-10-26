@@ -123,7 +123,7 @@ input[type="file"]{
 .restaurantes-list__restaurante{
     width: 48%;
     overflow:hidden;
-    margin:10px;
+    margin:15px;
     border:1px solid #DDD;
     border-radius: 4px;
     height: 201px;

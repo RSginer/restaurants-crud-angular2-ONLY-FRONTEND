@@ -13,6 +13,7 @@ export class RestauranteDetailComponent implements OnInit {
     public error;
     public restaurante;
     public loading = true;
+
     constructor(
         private _restaurantesService: RestaurantesService,
         private _routeParams: RouteParams,
@@ -23,7 +24,6 @@ export class RestauranteDetailComponent implements OnInit {
     ngOnInit() {
         this.parametro = this._routeParams.get("id");
         this.getRestauranteById(this.parametro);
-
     }
 
     getRestauranteById(id: string) {
@@ -43,6 +43,5 @@ export class RestauranteDetailComponent implements OnInit {
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);
             });
-
     }
 }

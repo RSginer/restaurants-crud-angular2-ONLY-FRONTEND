@@ -48,7 +48,8 @@ System.register(['angular2/core', "angular2/router", "./components/restaurantes-
                         { path: '/', name: 'Home', component: restaurantes_list_component_1.RestaurantesListComponent, useAsDefault: true },
                         { path: '/ver-restaurante/:id', name: 'Restaurante', component: restaurante_detail_component_1.RestauranteDetailComponent },
                         { path: '/crear-restaurante', name: 'CrearRestaurante', component: add_restaurante_component_1.AddRestaurantesComponent },
-                        { path: '/editar-restaurante/:id', name: 'EditarRestaurante', component: edit_restaurante_component_1.EditRestauranteComponent }
+                        { path: '/editar-restaurante/:id', name: 'EditarRestaurante', component: edit_restaurante_component_1.EditRestauranteComponent },
+                        { path: '/donde-como-hoy/:random', name: 'DondeComoHoy', component: restaurante_detail_component_1.RestauranteDetailComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

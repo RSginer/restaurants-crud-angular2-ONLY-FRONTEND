@@ -16,7 +16,8 @@ import {EditRestauranteComponent} from "./components/edit-restaurante.component"
     {path:'/', name:'Home', component: RestaurantesListComponent, useAsDefault: true},
     {path:'/ver-restaurante/:id', name:'Restaurante', component: RestauranteDetailComponent },
     {path:'/crear-restaurante', name:'CrearRestaurante', component: AddRestaurantesComponent},
-    {path:'/editar-restaurante/:id', name:'EditarRestaurante', component:EditRestauranteComponent}
+    {path:'/editar-restaurante/:id', name:'EditarRestaurante', component:EditRestauranteComponent},
+    {path:'/donde-como-hoy/:random', name:'DondeComoHoy',component:RestauranteDetailComponent}
 ])
  
 // Clase del componente donde iran los datos y funcionalidades

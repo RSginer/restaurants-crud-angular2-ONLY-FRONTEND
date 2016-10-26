@@ -1,6 +1,8 @@
 <div *ngIf="restaurante" class="restaurante">
     <h1 class="restaurante__nombre">{{restaurante.nombre}}</h1>
-    <p class="restaurante__imagen">{{restaurante.imagen}}</p>
+    <p class="restaurante__imagen">
+        <img src="{{restaurante.imagen}}">
+    </p>
     	<p  class="restaurante__precio">
         <span  [ngSwitch]="restaurante.precio">
             <span *ngSwitchWhen="'Bajo'">Entre 2.50€ y 7€</span>

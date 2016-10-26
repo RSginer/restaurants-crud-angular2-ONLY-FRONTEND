@@ -11,7 +11,6 @@
 		<input type="text" #nombre="ngForm" ngControl="nombre" [(ngModel)]="restaurante.nombre" required/>
 		<label>Imagen</label>
 		<div class="imagen-box">
-		
 			<div class="imagen-subida">
 				<img *ngIf="loadingImagen===false" class="imagen-add-restaurante" src="{{rutaImagen}}" />
 				<img *ngIf="loadingImagen==true" class="loading-imagen" src="assets/images/loading.gif" />

@@ -32,7 +32,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurantes.s
                     this._restaurantesService = _restaurantesService;
                     this._router = _router;
                     this._routeParams = _routeParams;
-                    this.titulo = "Editar restaurante";
+                    this.titulo = "Editar restaurante " + this._routeParams.get("id");
                     this.loadingImagen = false;
                 }
                 EditRestauranteComponent.prototype.subirImagen = function (fileInput) {

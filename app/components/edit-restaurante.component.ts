@@ -9,7 +9,7 @@ import {Restaurante} from "../model/restaurante";
     providers: [RestaurantesService]
 })
 export class EditRestauranteComponent implements OnInit {
-    public titulo = "Editar restaurante";
+    public titulo = "Editar restaurante " + this._routeParams.get("id");
     public restaurante: Restaurante;
     public error;
     public loadingImagen: boolean = false;

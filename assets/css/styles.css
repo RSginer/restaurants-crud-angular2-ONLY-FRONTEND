@@ -3,7 +3,10 @@ body{
     background:url("/assets/images/background-pattern.jpg");
 }
 
-
+.restaurante__imagen img{
+    width: 30%;
+    height: 30%;
+}
 .imagen-subida{
     width: 202px;
     margin-bottom: 10px;

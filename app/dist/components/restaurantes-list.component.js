@@ -60,7 +60,15 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                         if (error.status == 200) {
                             error.status = 401;
                         }
-                        console.error("ERROR: " + error.status);
+                        var exceptions = error._body.split(":");
+                        var exception = exceptions[1];
+                        exception = exception.substring(1, exception.length);
+                        console.info(exception);
+                        if (exception === "com.mysql.jdbc.exceptions.jdbc4.CommunicationsException") {
+                            alert("Error al conectar con la base de datos");
+                            error.status = 503;
+                        }
+                        console.error("ERROR: " + error.status + " - " + exception);
                         console.info("INFORMACION DEL ERROR");
                         console.info(error._body);
                     });

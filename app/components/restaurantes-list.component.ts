@@ -30,7 +30,7 @@ export class RestaurantesListComponent implements OnInit {
     }
 
     onBorrarRestaurante(id: number) {
-        this.confirmado=id;
+        this.confirmado = id;
     }
 
     confirmedBorrarRestaurante() {
@@ -42,7 +42,7 @@ export class RestaurantesListComponent implements OnInit {
                 alert("Ocurrio un error al borrar el restaurante");
             }
         );
-        this.confirmado=null;
+        this.confirmado = null;
     }
 
     getRestaurantes() {
@@ -50,24 +50,17 @@ export class RestaurantesListComponent implements OnInit {
             .subscribe(
             res => {
                 this.restaurantes = res;
-                if(res  == undefined){
-                    
+                if (res == undefined) {
+
                 }
                 this.loading = false;
             },
             error => {
                 this.error = <any>error;
-                if(error.status == 200){
-                   error.status=401;
-               }
-               let exceptions:string[] = error._body.split(":");
-               let exception:string = exceptions[1];
-               exception=exception.substring(1,exception.length);
-               console.info(exception);
-                if(exception === "com.mysql.jdbc.exceptions.jdbc4.CommunicationsException"){
-                    alert("Error al conectar con la base de datos");
+                if (error.status == 200) {
+                    error.status = 401;
                 }
-                console.error("ERROR: " + error.status + " - " + exception);
+                console.error("ERROR: " + error.status);
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);
             }

@@ -50,10 +50,16 @@ export class RestaurantesListComponent implements OnInit {
             .subscribe(
             res => {
                 this.restaurantes = res;
+                if(res  == undefined){
+                    
+                }
                 this.loading = false;
             },
             error => {
                 this.error = <any>error;
+                if(error.status == 200){
+                    this.error.status=401;
+                }
                 console.error("ERROR: " + error.status);
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);

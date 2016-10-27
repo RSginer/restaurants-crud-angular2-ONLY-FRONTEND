@@ -65,8 +65,7 @@ export class RestaurantesListComponent implements OnInit {
                exception=exception.substring(1,exception.length);
                console.info(exception);
                 if(exception === "com.mysql.jdbc.exceptions.jdbc4.CommunicationsException"){
-                    alert("Error al conectar con la base de datos");
-                    error.status=503;
+                    alert("Error al conectar con la base de datos";
                 }
                 console.error("ERROR: " + error.status + " - " + exception);
                 console.info("INFORMACION DEL ERROR");

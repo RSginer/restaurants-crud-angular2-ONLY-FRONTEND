@@ -66,7 +66,6 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                         console.info(exception);
                         if (exception === "com.mysql.jdbc.exceptions.jdbc4.CommunicationsException") {
                             alert("Error al conectar con la base de datos");
-                            error.status = 503;
                         }
                         console.error("ERROR: " + error.status + " - " + exception);
                         console.info("INFORMACION DEL ERROR");

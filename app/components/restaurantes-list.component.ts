@@ -57,9 +57,9 @@ export class RestaurantesListComponent implements OnInit {
             },
             error => {
                 this.error = <any>error;
-                if(error.status == 200){
-                    this.error.status=401;
-                }
+                if(this.error.status == 200){
+                   this.error.status=401;
+               }
                 console.error("ERROR: " + error.status);
                 console.info("INFORMACION DEL ERROR");
                 console.info(error._body);

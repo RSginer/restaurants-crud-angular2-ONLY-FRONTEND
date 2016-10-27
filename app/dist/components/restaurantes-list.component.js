@@ -57,8 +57,8 @@ System.register(['angular2/core', "angular2/router", "../services/restaurantes.s
                         _this.loading = false;
                     }, function (error) {
                         _this.error = error;
-                        if (_this.error.status == 200) {
-                            _this.error.status = 401;
+                        if (error.status == 200) {
+                            error.status = 401;
                         }
                         console.error("ERROR: " + error.status);
                         console.info("INFORMACION DEL ERROR");
